@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21F15F036F1A8F11CA564150 /* Pods_BerzanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8891CFD44A99CC6B748C91C2 /* Pods_BerzanUITests.framework */; };
+		42ECAC42423DBABFD9A4339D /* Pods_BerzanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AC21302C95C4C4B9FA9A87 /* Pods_BerzanTests.framework */; };
 		A11EB0141FAD4FBE000D5E25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EB0131FAD4FBE000D5E25 /* AppDelegate.swift */; };
 		A11EB0161FAD4FBE000D5E25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EB0151FAD4FBE000D5E25 /* ViewController.swift */; };
 		A11EB0191FAD4FBE000D5E25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11EB0171FAD4FBE000D5E25 /* Main.storyboard */; };
@@ -14,6 +16,8 @@
 		A11EB01E1FAD4FBE000D5E25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11EB01C1FAD4FBE000D5E25 /* LaunchScreen.storyboard */; };
 		A11EB0291FAD4FBE000D5E25 /* BerzanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EB0281FAD4FBE000D5E25 /* BerzanTests.swift */; };
 		A11EB0341FAD4FBE000D5E25 /* BerzanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EB0331FAD4FBE000D5E25 /* BerzanUITests.swift */; };
+		A11EB0451FAD5391000D5E25 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A11EB0441FAD5391000D5E25 /* logo.png */; };
+		B1BBB5F286C2FFFF5BDFA34B /* Pods_Berzan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4AFD6B7229E331C7BE13AD /* Pods_Berzan.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E3F6D18A01B64D347BD70AF /* Pods-BerzanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BerzanUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BerzanUITests/Pods-BerzanUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		56AC21302C95C4C4B9FA9A87 /* Pods_BerzanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BerzanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C413965FE9EB8219C7380D3 /* Pods-BerzanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BerzanUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BerzanUITests/Pods-BerzanUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8891CFD44A99CC6B748C91C2 /* Pods_BerzanUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BerzanUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A391F29A818FCF4582084F5 /* Pods-BerzanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BerzanTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BerzanTests/Pods-BerzanTests.release.xcconfig"; sourceTree = "<group>"; };
+		98AEC173667BF79F9CAB9754 /* Pods-BerzanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BerzanTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BerzanTests/Pods-BerzanTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A11EB0101FAD4FBE000D5E25 /* Berzan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Berzan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11EB0131FAD4FBE000D5E25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A11EB0151FAD4FBE000D5E25 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +57,10 @@
 		A11EB02F1FAD4FBE000D5E25 /* BerzanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BerzanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11EB0331FAD4FBE000D5E25 /* BerzanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerzanUITests.swift; sourceTree = "<group>"; };
 		A11EB0351FAD4FBE000D5E25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A11EB0441FAD5391000D5E25 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		AE4AFD6B7229E331C7BE13AD /* Pods_Berzan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Berzan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0911FE6EA6FA7AE5A0DA03C /* Pods-Berzan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Berzan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Berzan/Pods-Berzan.debug.xcconfig"; sourceTree = "<group>"; };
+		C314A42D3848C583337FE514 /* Pods-Berzan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Berzan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Berzan/Pods-Berzan.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1BBB5F286C2FFFF5BDFA34B /* Pods_Berzan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42ECAC42423DBABFD9A4339D /* Pods_BerzanTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21F15F036F1A8F11CA564150 /* Pods_BerzanUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +98,8 @@
 				A11EB0271FAD4FBE000D5E25 /* BerzanTests */,
 				A11EB0321FAD4FBE000D5E25 /* BerzanUITests */,
 				A11EB0111FAD4FBE000D5E25 /* Products */,
+				BB472767A29719DE4C28489B /* Pods */,
+				BD9E00D8F79F5F7087EC9EBA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,11 +116,10 @@
 		A11EB0121FAD4FBE000D5E25 /* Berzan */ = {
 			isa = PBXGroup;
 			children = (
-				A11EB0131FAD4FBE000D5E25 /* AppDelegate.swift */,
-				A11EB0151FAD4FBE000D5E25 /* ViewController.swift */,
-				A11EB0171FAD4FBE000D5E25 /* Main.storyboard */,
+				A11EB0431FAD5387000D5E25 /* Resources */,
+				A11EB0421FAD537D000D5E25 /* User Interface */,
+				A11EB0411FAD5373000D5E25 /* Swift */,
 				A11EB01A1FAD4FBE000D5E25 /* Assets.xcassets */,
-				A11EB01C1FAD4FBE000D5E25 /* LaunchScreen.storyboard */,
 				A11EB01F1FAD4FBE000D5E25 /* Info.plist */,
 			);
 			path = Berzan;
@@ -125,6 +143,55 @@
 			path = BerzanUITests;
 			sourceTree = "<group>";
 		};
+		A11EB0411FAD5373000D5E25 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				A11EB0131FAD4FBE000D5E25 /* AppDelegate.swift */,
+				A11EB0151FAD4FBE000D5E25 /* ViewController.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		A11EB0421FAD537D000D5E25 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				A11EB01C1FAD4FBE000D5E25 /* LaunchScreen.storyboard */,
+				A11EB0171FAD4FBE000D5E25 /* Main.storyboard */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		A11EB0431FAD5387000D5E25 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A11EB0441FAD5391000D5E25 /* logo.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BB472767A29719DE4C28489B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B0911FE6EA6FA7AE5A0DA03C /* Pods-Berzan.debug.xcconfig */,
+				C314A42D3848C583337FE514 /* Pods-Berzan.release.xcconfig */,
+				98AEC173667BF79F9CAB9754 /* Pods-BerzanTests.debug.xcconfig */,
+				8A391F29A818FCF4582084F5 /* Pods-BerzanTests.release.xcconfig */,
+				3E3F6D18A01B64D347BD70AF /* Pods-BerzanUITests.debug.xcconfig */,
+				6C413965FE9EB8219C7380D3 /* Pods-BerzanUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BD9E00D8F79F5F7087EC9EBA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE4AFD6B7229E331C7BE13AD /* Pods_Berzan.framework */,
+				56AC21302C95C4C4B9FA9A87 /* Pods_BerzanTests.framework */,
+				8891CFD44A99CC6B748C91C2 /* Pods_BerzanUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +199,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A11EB0381FAD4FBE000D5E25 /* Build configuration list for PBXNativeTarget "Berzan" */;
 			buildPhases = (
+				ADCB055EFDC5A8CD16FF5DFF /* [CP] Check Pods Manifest.lock */,
 				A11EB00C1FAD4FBE000D5E25 /* Sources */,
 				A11EB00D1FAD4FBE000D5E25 /* Frameworks */,
 				A11EB00E1FAD4FBE000D5E25 /* Resources */,
+				901BD7EA137E0F808154BDF8 /* [CP] Embed Pods Frameworks */,
+				5839ECB58585F82F26B118A9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +219,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A11EB03B1FAD4FBE000D5E25 /* Build configuration list for PBXNativeTarget "BerzanTests" */;
 			buildPhases = (
+				D6A10EADD4529DDEFF81DAF5 /* [CP] Check Pods Manifest.lock */,
 				A11EB0201FAD4FBE000D5E25 /* Sources */,
 				A11EB0211FAD4FBE000D5E25 /* Frameworks */,
 				A11EB0221FAD4FBE000D5E25 /* Resources */,
+				115E2F2C648A1E420DA83B56 /* [CP] Embed Pods Frameworks */,
+				0F265A69086B44AFF3D1903F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +240,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A11EB03E1FAD4FBE000D5E25 /* Build configuration list for PBXNativeTarget "BerzanUITests" */;
 			buildPhases = (
+				3B5EF8EC98EE16DDA2A25700 /* [CP] Check Pods Manifest.lock */,
 				A11EB02B1FAD4FBE000D5E25 /* Sources */,
 				A11EB02C1FAD4FBE000D5E25 /* Frameworks */,
 				A11EB02D1FAD4FBE000D5E25 /* Resources */,
+				EE670046E4FC48A03A4647C5 /* [CP] Embed Pods Frameworks */,
+				B6CE20AB80B311A656E42321 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11EB0451FAD5391000D5E25 /* logo.png in Resources */,
 				A11EB01E1FAD4FBE000D5E25 /* LaunchScreen.storyboard in Resources */,
 				A11EB01B1FAD4FBE000D5E25 /* Assets.xcassets in Resources */,
 				A11EB0191FAD4FBE000D5E25 /* Main.storyboard in Resources */,
@@ -253,6 +330,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F265A69086B44AFF3D1903F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BerzanTests/Pods-BerzanTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		115E2F2C648A1E420DA83B56 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BerzanTests/Pods-BerzanTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B5EF8EC98EE16DDA2A25700 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5839ECB58585F82F26B118A9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Berzan/Pods-Berzan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		901BD7EA137E0F808154BDF8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Berzan/Pods-Berzan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADCB055EFDC5A8CD16FF5DFF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B6CE20AB80B311A656E42321 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BerzanUITests/Pods-BerzanUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6A10EADD4529DDEFF81DAF5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EE670046E4FC48A03A4647C5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BerzanUITests/Pods-BerzanUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A11EB00C1FAD4FBE000D5E25 /* Sources */ = {
@@ -424,6 +639,7 @@
 		};
 		A11EB0391FAD4FBE000D5E25 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0911FE6EA6FA7AE5A0DA03C /* Pods-Berzan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -439,6 +655,7 @@
 		};
 		A11EB03A1FAD4FBE000D5E25 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C314A42D3848C583337FE514 /* Pods-Berzan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -454,6 +671,7 @@
 		};
 		A11EB03C1FAD4FBE000D5E25 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98AEC173667BF79F9CAB9754 /* Pods-BerzanTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -471,6 +689,7 @@
 		};
 		A11EB03D1FAD4FBE000D5E25 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A391F29A818FCF4582084F5 /* Pods-BerzanTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -488,6 +707,7 @@
 		};
 		A11EB03F1FAD4FBE000D5E25 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E3F6D18A01B64D347BD70AF /* Pods-BerzanUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -504,6 +724,7 @@
 		};
 		A11EB0401FAD4FBE000D5E25 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C413965FE9EB8219C7380D3 /* Pods-BerzanUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
