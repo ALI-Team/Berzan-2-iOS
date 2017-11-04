@@ -10,13 +10,13 @@
 		21F15F036F1A8F11CA564150 /* Pods_BerzanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8891CFD44A99CC6B748C91C2 /* Pods_BerzanUITests.framework */; };
 		42ECAC42423DBABFD9A4339D /* Pods_BerzanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AC21302C95C4C4B9FA9A87 /* Pods_BerzanTests.framework */; };
 		A11EB0141FAD4FBE000D5E25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EB0131FAD4FBE000D5E25 /* AppDelegate.swift */; };
-		A11EB0161FAD4FBE000D5E25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EB0151FAD4FBE000D5E25 /* ViewController.swift */; };
 		A11EB0191FAD4FBE000D5E25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11EB0171FAD4FBE000D5E25 /* Main.storyboard */; };
 		A11EB01B1FAD4FBE000D5E25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A11EB01A1FAD4FBE000D5E25 /* Assets.xcassets */; };
 		A11EB01E1FAD4FBE000D5E25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A11EB01C1FAD4FBE000D5E25 /* LaunchScreen.storyboard */; };
 		A11EB0291FAD4FBE000D5E25 /* BerzanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EB0281FAD4FBE000D5E25 /* BerzanTests.swift */; };
 		A11EB0341FAD4FBE000D5E25 /* BerzanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EB0331FAD4FBE000D5E25 /* BerzanUITests.swift */; };
 		A11EB0451FAD5391000D5E25 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A11EB0441FAD5391000D5E25 /* logo.png */; };
+		A11EB04B1FAD5713000D5E25 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EB04A1FAD5713000D5E25 /* Schedule.swift */; };
 		B1BBB5F286C2FFFF5BDFA34B /* Pods_Berzan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4AFD6B7229E331C7BE13AD /* Pods_Berzan.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +46,6 @@
 		98AEC173667BF79F9CAB9754 /* Pods-BerzanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BerzanTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BerzanTests/Pods-BerzanTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A11EB0101FAD4FBE000D5E25 /* Berzan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Berzan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11EB0131FAD4FBE000D5E25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A11EB0151FAD4FBE000D5E25 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A11EB0181FAD4FBE000D5E25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A11EB01A1FAD4FBE000D5E25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A11EB01D1FAD4FBE000D5E25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		A11EB0331FAD4FBE000D5E25 /* BerzanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerzanUITests.swift; sourceTree = "<group>"; };
 		A11EB0351FAD4FBE000D5E25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A11EB0441FAD5391000D5E25 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		A11EB04A1FAD5713000D5E25 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		AE4AFD6B7229E331C7BE13AD /* Pods_Berzan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Berzan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0911FE6EA6FA7AE5A0DA03C /* Pods-Berzan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Berzan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Berzan/Pods-Berzan.debug.xcconfig"; sourceTree = "<group>"; };
 		C314A42D3848C583337FE514 /* Pods-Berzan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Berzan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Berzan/Pods-Berzan.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				A11EB0131FAD4FBE000D5E25 /* AppDelegate.swift */,
-				A11EB0151FAD4FBE000D5E25 /* ViewController.swift */,
+				A11EB04A1FAD5713000D5E25 /* Schedule.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -205,6 +205,7 @@
 				A11EB00E1FAD4FBE000D5E25 /* Resources */,
 				901BD7EA137E0F808154BDF8 /* [CP] Embed Pods Frameworks */,
 				5839ECB58585F82F26B118A9 /* [CP] Copy Pods Resources */,
+				A11EB0461FAD5440000D5E25 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -407,6 +408,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Berzan/Pods-Berzan-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A11EB0461FAD5440000D5E25 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+		};
 		ADCB055EFDC5A8CD16FF5DFF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -474,7 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A11EB0161FAD4FBE000D5E25 /* ViewController.swift in Sources */,
+				A11EB04B1FAD5713000D5E25 /* Schedule.swift in Sources */,
 				A11EB0141FAD4FBE000D5E25 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
