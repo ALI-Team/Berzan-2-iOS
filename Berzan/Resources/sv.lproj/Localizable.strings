@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Berzan
+
+  Created by Luka Janković on 2017-11-04.
+  Copyright © 2017 ALI Team. All rights reserved.
+*/
+
+//Schedule
+"week-prefix" = "V.";
+"monday-short" = "Mån";
+"tuesday-short" = "Tis";
+"wednesday-short" = "Ons";
+"thursday-short" = "Tor";
+"friday-short" = "Fre";

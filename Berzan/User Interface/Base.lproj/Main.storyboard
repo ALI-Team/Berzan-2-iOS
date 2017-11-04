@@ -48,7 +48,7 @@
             </objects>
             <point key="canvasLocation" x="423" y="81"/>
         </scene>
-        <!--Schema-->
+        <!--Schedule-->
         <scene sceneID="RnO-xa-aPg">
             <objects>
                 <viewController id="ELy-Ug-Oxx" customClass="ScheduleWrapperController" customModule="Berzan" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,8 +69,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4ov-SV-a5U"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Schema" image="ic_today_white" id="3Bh-ds-2CH"/>
-                    <navigationItem key="navigationItem" title="Schema" id="iW3-pl-9ok"/>
+                    <tabBarItem key="tabBarItem" title="Schedule" image="ic_today_white" id="3Bh-ds-2CH"/>
+                    <navigationItem key="navigationItem" title="Schedule" id="iW3-pl-9ok"/>
                     <connections>
                         <outlet property="containerView" destination="Prv-bp-CHS" id="I6H-WV-SZb"/>
                     </connections>

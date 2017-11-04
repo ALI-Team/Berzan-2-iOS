@@ -17,6 +17,7 @@
 		A11EB0341FAD4FBE000D5E25 /* BerzanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EB0331FAD4FBE000D5E25 /* BerzanUITests.swift */; };
 		A11EB0451FAD5391000D5E25 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A11EB0441FAD5391000D5E25 /* logo.png */; };
 		A11EB04B1FAD5713000D5E25 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EB04A1FAD5713000D5E25 /* Schedule.swift */; };
+		A17056F71FADC7030053AA21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A17056F91FADC7030053AA21 /* Localizable.strings */; };
 		B1BBB5F286C2FFFF5BDFA34B /* Pods_Berzan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4AFD6B7229E331C7BE13AD /* Pods_Berzan.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,9 @@
 		A11EB0351FAD4FBE000D5E25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A11EB0441FAD5391000D5E25 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		A11EB04A1FAD5713000D5E25 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		A17056F21FADC69A0053AA21 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
+		A17056F81FADC7030053AA21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A17056FA1FADC7040053AA21 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AE4AFD6B7229E331C7BE13AD /* Pods_Berzan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Berzan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0911FE6EA6FA7AE5A0DA03C /* Pods-Berzan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Berzan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Berzan/Pods-Berzan.debug.xcconfig"; sourceTree = "<group>"; };
 		C314A42D3848C583337FE514 /* Pods-Berzan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Berzan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Berzan/Pods-Berzan.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				A11EB0441FAD5391000D5E25 /* logo.png */,
+				A17056F91FADC7030053AA21 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 			knownRegions = (
 				en,
 				Base,
+				sv,
 			);
 			mainGroup = A11EB0071FAD4FBE000D5E25;
 			productRefGroup = A11EB0111FAD4FBE000D5E25 /* Products */;
@@ -309,6 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A17056F71FADC7030053AA21 /* Localizable.strings in Resources */,
 				A11EB0451FAD5391000D5E25 /* logo.png in Resources */,
 				A11EB01E1FAD4FBE000D5E25 /* LaunchScreen.storyboard in Resources */,
 				A11EB01B1FAD4FBE000D5E25 /* Assets.xcassets in Resources */,
@@ -529,6 +536,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A11EB0181FAD4FBE000D5E25 /* Base */,
+				A17056F21FADC69A0053AA21 /* sv */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -541,6 +549,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		A17056F91FADC7030053AA21 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A17056F81FADC7030053AA21 /* en */,
+				A17056FA1FADC7040053AA21 /* sv */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -548,6 +565,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -605,6 +623,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

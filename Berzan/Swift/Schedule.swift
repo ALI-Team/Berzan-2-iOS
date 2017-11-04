@@ -31,7 +31,7 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController {
     
     //Tab setup
     override public func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        return [ScheduleViewController(title:"V. 69"), ScheduleViewController(title:"Mån"), ScheduleViewController(title:"Tis"), ScheduleViewController(title:"Ons"), ScheduleViewController(title:"Tors"), ScheduleViewController(title:"Fre")]
+        return [ScheduleViewController(title:NSLocalizedString("week-prefix", comment: "")+" 35"), ScheduleViewController(title:NSLocalizedString("monday-short", comment: "")), ScheduleViewController(title:NSLocalizedString("tuesday-short", comment: "")), ScheduleViewController(title:NSLocalizedString("wednesday-short", comment: "")), ScheduleViewController(title:NSLocalizedString("thursday-short", comment: "")), ScheduleViewController(title:NSLocalizedString("friday-short", comment: ""))]
     }
     
     func setupTabs() {
