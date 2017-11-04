@@ -9,8 +9,9 @@
 import UIKit
 import XLPagerTabStrip
 import Kingfisher
+import RMPickerViewController
 
-class ScheduleWrapperController:ButtonBarPagerTabStripViewController {
+class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     //General view setup
     override func viewDidLoad() {
@@ -50,6 +51,42 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController {
         settings.style.selectedBarBackgroundColor = UIColor.white
         settings.style.selectedBarHeight = 2
         settings.style.buttonBarItemLeftRightMargin = 2
+    }
+    
+    //Week picker
+    @IBAction func selectWeek(_ sender: Any) {
+        
+        let selectAction = RMAction<UIPickerView>(title: NSLocalizedString("select", comment:""), style:.done) { _ in
+            
+        }
+        
+        let cancelAction = RMAction<UIPickerView>(title: NSLocalizedString("cancel", comment:""), style:.cancel) { _ in
+            print("cancel")
+        }
+        
+        let thisWeekAction = RMAction<UIPickerView>(title: NSLocalizedString("this-week", comment:""), style:.done) { _ in
+
+        }
+        
+        let actionController = RMPickerViewController(style:RMActionControllerStyle.sheetWhite, title: "", message: "", select:selectAction, andCancel:cancelAction)!;
+        actionController.picker.delegate = self;
+        actionController.picker.dataSource = self;
+        
+        actionController.addAction(thisWeekAction!)
+        
+        tabBarController?.present(actionController, animated: true, completion: nil)
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 52
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(row+1)
     }
 }
 

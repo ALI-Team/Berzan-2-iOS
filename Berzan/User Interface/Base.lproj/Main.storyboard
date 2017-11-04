@@ -13,6 +13,7 @@
         <scene sceneID="1rc-a8-tR2">
             <objects>
                 <tabBarController id="Wyw-bR-kWR" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="HlO-ZU-I8c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -33,6 +34,7 @@
         <scene sceneID="cDh-AX-nCV">
             <objects>
                 <navigationController id="koo-Qe-2UX" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Item" id="VEI-AM-ccD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="8ip-ha-BMP">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -71,8 +73,16 @@
                             <constraint firstItem="Prv-bp-CHS" firstAttribute="leading" secondItem="MQc-3D-Kqk" secondAttribute="leading" id="z7T-OX-eH2"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Schedule" image="ic_today_white" id="3Bh-ds-2CH"/>
-                    <navigationItem key="navigationItem" title="Schedule" id="iW3-pl-9ok"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="Schedule" image="planner" id="3Bh-ds-2CH"/>
+                    <navigationItem key="navigationItem" title="Schedule" id="iW3-pl-9ok">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="ic_book_white" id="EM8-fA-yQM"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ic_date_range_white" id="7ZU-Gj-6VO">
+                            <connections>
+                                <action selector="selectWeek:" destination="ELy-Ug-Oxx" id="zuW-IQ-uk3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="containerView" destination="Prv-bp-CHS" id="I6H-WV-SZb"/>
                     </connections>
@@ -83,7 +93,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_today_white" width="24" height="24"/>
+        <image name="ic_book_white" width="24" height="24"/>
+        <image name="ic_date_range_white" width="24" height="24"/>
+        <image name="planner" width="30" height="30"/>
     </resources>
     <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

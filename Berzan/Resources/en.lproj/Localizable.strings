@@ -14,3 +14,8 @@
 "wednesday-short" = "Wed";
 "thursday-short" = "Thu";
 "friday-short" = "Fri";
+
+//Generic
+"select" = "Select";
+"cancel" = "Cancel";
+"this-week" = "This Week";

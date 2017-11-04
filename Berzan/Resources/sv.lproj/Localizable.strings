@@ -14,3 +14,8 @@
 "wednesday-short" = "Ons";
 "thursday-short" = "Tor";
 "friday-short" = "Fre";
+
+//Generic
+"select" = "Välj";
+"cancel" = "Avbryt";
+"this-week" = "Denna Vecka";
