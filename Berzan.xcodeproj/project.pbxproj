@@ -62,6 +62,8 @@
 		A17056F21FADC69A0053AA21 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		A17056F81FADC7030053AA21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A17056FA1FADC7040053AA21 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A1B754E01FADEA2100626285 /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XLPagerTabStrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B754E21FADEA2D00626285 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4AFD6B7229E331C7BE13AD /* Pods_Berzan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Berzan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0911FE6EA6FA7AE5A0DA03C /* Pods-Berzan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Berzan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Berzan/Pods-Berzan.debug.xcconfig"; sourceTree = "<group>"; };
 		C314A42D3848C583337FE514 /* Pods-Berzan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Berzan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Berzan/Pods-Berzan.release.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +192,8 @@
 		BD9E00D8F79F5F7087EC9EBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1B754E21FADEA2D00626285 /* Kingfisher.framework */,
+				A1B754E01FADEA2100626285 /* XLPagerTabStrip.framework */,
 				AE4AFD6B7229E331C7BE13AD /* Pods_Berzan.framework */,
 				56AC21302C95C4C4B9FA9A87 /* Pods_BerzanTests.framework */,
 				8891CFD44A99CC6B748C91C2 /* Pods_BerzanUITests.framework */,
@@ -678,6 +682,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R984C6N435;
 				INFOPLIST_FILE = Berzan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = am.alite.Berzan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -694,6 +699,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R984C6N435;
 				INFOPLIST_FILE = Berzan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = am.alite.Berzan;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -7,6 +7,7 @@
 */
 
 //Schedule
+"schedule-lan" = "sv-se";
 "week-prefix" = "V.";
 "monday-short" = "Mån";
 "tuesday-short" = "Tis";

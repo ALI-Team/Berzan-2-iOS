@@ -7,6 +7,7 @@ target 'Berzan' do
 
   # Pods for Berzan
   pod 'XLPagerTabStrip', '~> 8.0'
+  pod 'Kingfisher', '~> 4.0'
   
   target 'BerzanTests' do
     inherit! :search_paths
