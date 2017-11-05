@@ -13,6 +13,9 @@ import RMPickerViewController
 
 class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    var scheduleList = [ScheduleViewController]()
+    var week: Int = 0
+    
     //General view setup
     override func viewDidLoad() {
         setupTabs()
@@ -23,13 +26,13 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //Setup week
+        self.week = Calendar.current.component(.weekOfYear, from: Date())
+        setWeek()
+        
         //Other UI setup
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         UIApplication.shared.statusBarStyle = .lightContent
-        
-        /*edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
-        extendedLayoutIncludesOpaqueBars = false
-        automaticallyAdjustsScrollViewInsets = false*/
         
         //iOS 8 & 9
         self.tabBarController?.tabBar.tintColor = UIColor.white
@@ -42,7 +45,8 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
     //Tab setup
     override public func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         
-        return [ScheduleViewController(title:NSLocalizedString("week-prefix", comment: "")+" 35", index: 0), ScheduleViewController(title:NSLocalizedString("monday-short", comment: ""), index: 1), ScheduleViewController(title:NSLocalizedString("tuesday-short", comment: ""), index: 2), ScheduleViewController(title:NSLocalizedString("wednesday-short", comment: ""), index: 4), ScheduleViewController(title:NSLocalizedString("thursday-short", comment: ""), index: 8), ScheduleViewController(title:NSLocalizedString("friday-short", comment: ""), index: 16)]
+        scheduleList = [ScheduleViewController(title:NSLocalizedString("week-prefix", comment: "")+" 35", index: 0), ScheduleViewController(title:NSLocalizedString("monday-short", comment: ""), index: 1), ScheduleViewController(title:NSLocalizedString("tuesday-short", comment: ""), index: 2), ScheduleViewController(title:NSLocalizedString("wednesday-short", comment: ""), index: 4), ScheduleViewController(title:NSLocalizedString("thursday-short", comment: ""), index: 8), ScheduleViewController(title:NSLocalizedString("friday-short", comment: ""), index: 16)]
+        return scheduleList
     }
     
     func setupTabs() {
@@ -56,25 +60,31 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
     //Week picker
     @IBAction func selectWeek(_ sender: Any) {
         
-        let selectAction = RMAction<UIPickerView>(title: NSLocalizedString("select", comment:""), style:.done) { _ in
-            
-        }
-        
         let cancelAction = RMAction<UIPickerView>(title: NSLocalizedString("cancel", comment:""), style:.cancel) { _ in
-            print("cancel")
         }
         
         let thisWeekAction = RMAction<UIPickerView>(title: NSLocalizedString("this-week", comment:""), style:.done) { _ in
-
+            self.week = Calendar.current.component(.weekOfYear, from: Date())
+            self.setWeek()
+            self.reloadSchedules()
+        }
+        thisWeekAction?.view.tintColor = UIColor(red:0.53, green:0.08, blue:0.22, alpha:1.0)
+        
+        let selectAction = RMAction<UIPickerView>(title: NSLocalizedString("select", comment:""), style:.done) { controller in
+            self.week = controller.contentView.selectedRow(inComponent: 0)
+            self.setWeek()
+            self.reloadSchedules()
         }
         
         let actionController = RMPickerViewController(style:RMActionControllerStyle.sheetWhite, title: "", message: "", select:selectAction, andCancel:cancelAction)!;
         actionController.picker.delegate = self;
         actionController.picker.dataSource = self;
+        actionController.picker.selectRow(week, inComponent: 0, animated: false)
         
         actionController.addAction(thisWeekAction!)
         
-        tabBarController?.present(actionController, animated: true, completion: nil)
+        //Don't ask...
+        tabBarController?.present(actionController, animated: true, completion:nil)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -88,6 +98,19 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return String(row+1)
     }
+    
+    //Other
+    func setWeek() {
+        for scheduleView: ScheduleViewController in scheduleList {
+            scheduleView.week = self.week
+        }
+    }
+    
+    func reloadSchedules() {
+        for scheduleView: ScheduleViewController in scheduleList {
+            scheduleView.loadSchedule()
+        }
+    }
 }
 
 class ScheduleViewController:UIViewController, IndicatorInfoProvider {
@@ -95,11 +118,13 @@ class ScheduleViewController:UIViewController, IndicatorInfoProvider {
     var itemIndex: Int
     var itemTitle: String
     var scheduleView: UIImageView?
+    var week: Int
     
     init(title: String, index: Int) {
         itemTitle = title
         itemIndex = index
         scheduleView = nil
+        week = 0
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -145,10 +170,12 @@ class ScheduleViewController:UIViewController, IndicatorInfoProvider {
         
         view.layoutIfNeeded()
         
-        let viewHeight = Int((scheduleView?.bounds.height)!)
-        let viewWidth = Int((scheduleView?.bounds.width)!)
-        
-        scheduleView?.kf.indicatorType = .activity
-        scheduleView?.kf.setImage(with: URL(string: "http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=89920/\(NSLocalizedString("schedule-lan", comment: ""))&type=-1&id=na15c&period=&week=45&mode=0&printer=0&colors=32&head=0&clock=0&foot=0&day=\(itemIndex)&width=\(viewWidth)&height=\(viewHeight)&maxwidth=\(viewWidth)&maxheight=\(viewHeight)"))
+        if scheduleView?.bounds != nil {
+            let viewHeight = Int((scheduleView?.bounds.height)!)
+            let viewWidth = Int((scheduleView?.bounds.width)!)
+            
+            scheduleView?.kf.indicatorType = .activity
+            scheduleView?.kf.setImage(with: URL(string: "http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=89920/\(NSLocalizedString("schedule-lan", comment: ""))&type=-1&id=na15c&period=&week=\(week)&mode=0&printer=0&colors=32&head=0&clock=0&foot=0&day=\(itemIndex)&width=\(viewWidth)&height=\(viewHeight)&maxwidth=\(viewWidth)&maxheight=\(viewHeight)"))
+        }
     }
 }
