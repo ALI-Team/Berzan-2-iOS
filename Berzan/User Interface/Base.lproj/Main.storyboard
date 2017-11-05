@@ -76,7 +76,11 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Schedule" image="planner" id="3Bh-ds-2CH"/>
                     <navigationItem key="navigationItem" title="Schedule" id="iW3-pl-9ok">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="ic_book_white" id="EM8-fA-yQM"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="ic_book_white" id="EM8-fA-yQM">
+                            <connections>
+                                <action selector="selectClass:" destination="ELy-Ug-Oxx" id="QYb-XZ-CrH"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="ic_date_range_white" id="7ZU-Gj-6VO">
                             <connections>
                                 <action selector="selectWeek:" destination="ELy-Ug-Oxx" id="zuW-IQ-uk3"/>

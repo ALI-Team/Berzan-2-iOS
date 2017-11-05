@@ -9,6 +9,7 @@ target 'Berzan' do
   pod 'XLPagerTabStrip', '~> 8.0'
   pod 'Kingfisher', '~> 4.0'
   pod "RMPickerViewController", "~> 2.3.1"
+  pod 'RETableViewManager', '~> 1.6'
   
   target 'BerzanTests' do
     inherit! :search_paths

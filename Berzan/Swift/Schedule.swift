@@ -10,6 +10,25 @@ import UIKit
 import XLPagerTabStrip
 import Kingfisher
 import RMPickerViewController
+import RETableViewManager
+
+class ClassListActionController: RMActionController<UITableView> {
+    required override init?(style aStyle: RMActionControllerStyle, title aTitle: String?, message aMessage: String?, select selectAction: RMAction<UITableView>?, andCancel cancelAction: RMAction<UITableView>?) {
+        super.init(style: aStyle, title: aTitle, message: aMessage, select: selectAction, andCancel: cancelAction)
+        
+        self.contentView = UITableView()
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.backgroundColor = UIColor.white
+        
+        let bindings = ["contentView": self.contentView];
+        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "[contentView(>=300)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: bindings))
+        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[contentView(200)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: bindings))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder);
+    }
+}
 
 class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -36,6 +55,14 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
         
         //iOS 8 & 9
         self.tabBarController?.tabBar.tintColor = UIColor.white
+        
+        /*
+         *
+         * REMINDER
+         * ========
+         * Scrolling to the day with moveToViewController(at index: Int) does not currently work with XLPagerStrip, waiting for a fix
+         *
+         */
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -68,7 +95,6 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
             self.setWeek()
             self.reloadSchedules()
         }
-        thisWeekAction?.view.tintColor = UIColor(red:0.53, green:0.08, blue:0.22, alpha:1.0)
         
         let selectAction = RMAction<UIPickerView>(title: NSLocalizedString("select", comment:""), style:.done) { controller in
             self.week = controller.contentView.selectedRow(inComponent: 0)
@@ -76,12 +102,16 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
             self.reloadSchedules()
         }
         
-        let actionController = RMPickerViewController(style:RMActionControllerStyle.sheetWhite, title: "", message: "", select:selectAction, andCancel:cancelAction)!;
-        actionController.picker.delegate = self;
-        actionController.picker.dataSource = self;
-        actionController.picker.selectRow(week, inComponent: 0, animated: false)
+        let actionController = RMPickerViewController(style:.white, title: "", message: "", select:selectAction, andCancel:cancelAction)!
+        actionController.picker.delegate = self
+        actionController.picker.dataSource = self
+        actionController.disableBouncingEffects = true
+        actionController.disableBlurEffects = true
+        actionController.picker.selectRow(week - 1, inComponent: 0, animated: false)
         
         actionController.addAction(thisWeekAction!)
+        
+        actionController.view.tintColor = UIColor(red:0.53, green:0.08, blue:0.22, alpha:1.0)
         
         //Don't ask...
         tabBarController?.present(actionController, animated: true, completion:nil)
@@ -97,6 +127,42 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return String(row+1)
+    }
+    
+    //Class picker
+    @IBAction func selectClass(_ sender: Any) {
+        
+        let cancelAction = RMAction<UITableView>(title: NSLocalizedString("cancel", comment:""), style:.cancel) { _ in
+        }
+        
+        let editAction = RMAction<UITableView>(title: NSLocalizedString("edit", comment:""), style:.done) { _ in
+            
+        }
+        
+        let selectAction = RMAction<UITableView>(title: NSLocalizedString("select", comment:""), style:.done) { controller in
+        }
+        
+        let actionController = ClassListActionController(style:.white, title: NSLocalizedString("select-class-title", comment: ""), message:"", select:selectAction, andCancel:cancelAction)!
+        
+        actionController.disableBlurEffects = true
+        actionController.disableBouncingEffects = true
+        actionController.addAction(editAction!)
+        actionController.view.tintColor = UIColor(red:0.53, green:0.08, blue:0.22, alpha:1.0)
+    
+        let classListTable = actionController.contentView
+        let classListManager = RETableViewManager.init(tableView: classListTable)
+        
+        let baseSection = RETableViewSection.init()
+        
+        baseSection.addItem(RETableViewItem.init(title: "Test"))
+        baseSection.addItem(RETableViewItem.init(title: "Test"))
+        baseSection.addItem(RETableViewItem.init(title: "Test"))
+        baseSection.addItem(RETableViewItem.init(title: "Test"))
+        
+        classListManager?.addSection(baseSection)
+        
+        //Again...
+        tabBarController?.present(actionController, animated: true, completion:nil)
     }
     
     //Other
@@ -151,6 +217,7 @@ class ScheduleViewController:UIViewController, IndicatorInfoProvider {
     }
     
     func initializeInterface() {
+        
         //Imageview
         if scheduleView == nil {
             scheduleView = UIImageView.init()
