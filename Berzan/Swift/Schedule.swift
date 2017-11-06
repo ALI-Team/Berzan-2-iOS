@@ -40,7 +40,7 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
     override func viewDidLoad() {
         setupTabs()
         
-        classListArray = UserDefaults.standard.array(forKey: "temp-class-list") as! [String]
+        classListArray = UserDefaults.standard.array(forKey: "temp-class-list") as? [String] ?? [""]
         
         /*
          *
