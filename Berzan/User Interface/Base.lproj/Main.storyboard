@@ -24,6 +24,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="koo-Qe-2UX" kind="relationship" relationship="viewControllers" id="vUo-Kw-1bT"/>
+                        <segue destination="Nxc-br-y3C" kind="relationship" relationship="viewControllers" id="Zfb-tU-wXc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XXd-fh-laG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -76,12 +77,12 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Schedule" image="planner" id="3Bh-ds-2CH"/>
                     <navigationItem key="navigationItem" title="Schedule" id="iW3-pl-9ok">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="ic_book_white" id="EM8-fA-yQM">
+                        <barButtonItem key="leftBarButtonItem" image="ic_book_white" id="EM8-fA-yQM">
                             <connections>
                                 <action selector="selectClass:" destination="ELy-Ug-Oxx" id="QYb-XZ-CrH"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="ic_date_range_white" id="7ZU-Gj-6VO">
+                        <barButtonItem key="rightBarButtonItem" image="ic_date_range_white" id="7ZU-Gj-6VO">
                             <connections>
                                 <action selector="selectWeek:" destination="ELy-Ug-Oxx" id="zuW-IQ-uk3"/>
                             </connections>
@@ -95,11 +96,60 @@
             </objects>
             <point key="canvasLocation" x="1153" y="81"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="YtN-J0-Nrl">
+            <objects>
+                <tableViewController id="f48-rv-FxJ" customClass="SettingsViewController" customModule="Berzan" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="dLy-wz-Jmd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="tintColor" red="0.56078431370000004" green="0.1058823529" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="dUc-PF-lkp">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dUc-PF-lkp" id="f0i-fC-RDZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="f48-rv-FxJ" id="i7F-gF-aEJ"/>
+                            <outlet property="delegate" destination="f48-rv-FxJ" id="FC3-Ha-9oX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="EJB-QJ-d8X"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ar-j1-94w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1153" y="781"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="5yW-rk-T5F">
+            <objects>
+                <navigationController id="Nxc-br-y3C" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="Fe3-eD-4Qr"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="nuL-dJ-zZs">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.56078431370000004" green="0.1058823529" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="f48-rv-FxJ" kind="relationship" relationship="rootViewController" id="Yxe-mr-dUu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ou8-nz-YfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="422" y="781"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_book_white" width="24" height="24"/>
         <image name="ic_date_range_white" width="24" height="24"/>
         <image name="planner" width="30" height="30"/>
+        <image name="settings" width="30" height="30"/>
     </resources>
     <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

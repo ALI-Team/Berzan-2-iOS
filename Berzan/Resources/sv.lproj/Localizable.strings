@@ -17,12 +17,19 @@
 "add-class" = "Lägg till klass";
 "delete-class" = "Ta bort klass %@";
 
+//Settings
+"about" = "Om";
+"mail" = "Maila utvecklaren";
+"credits" = "Tack till";
+"by-aliteam" = "av ALI-Team";
+"class" = "Klass";
+
 //Generic
 "select" = "Välj";
 "cancel" = "Avbryt";
 "this-week" = "Denna Vecka";
 "select-class-title" = "Välj Klass";
-"edit" = "Ändra";
+"edit" = "Redigera";
 "edit-class-list-title" = "Ändra klasser";
 "back" = "Tillbaks";
 "add" = "Lägg till";

@@ -1,9 +1,18 @@
 
-/* Class = "UITabBarItem"; title = "Schema"; ObjectID = "3Bh-ds-2CH"; */
+/* Class = "UITabBarItem"; title = "Schedule"; ObjectID = "3Bh-ds-2CH"; */
 "3Bh-ds-2CH.title" = "Schema";
 
 /* Class = "UITabBarItem"; title = "Item"; ObjectID = "VEI-AM-ccD"; */
 "VEI-AM-ccD.title" = "Item";
 
-/* Class = "UINavigationItem"; title = "Schema"; ObjectID = "iW3-pl-9ok"; */
+/* Class = "UINavigationItem"; title = "Schedule"; ObjectID = "iW3-pl-9ok"; */
 "iW3-pl-9ok.title" = "Schema";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "EJB-QJ-d8X"; */
+"EJB-QJ-d8X.title" = "Inställningar";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "Fe3-eD-4Qr"; */
+"Fe3-eD-4Qr.title" = "Inställningar";
+
+
+

@@ -17,6 +17,13 @@
 "add-class" = "Add Class";
 "delete-class" = "Delete Class %@";
 
+//Settings
+"about" = "About";
+"mail" = "Email the developer";
+"credits" = "Credits";
+"by-aliteam" = "by ALI-Team";
+"class" = "Class";
+
 //Generic
 "select" = "Select";
 "cancel" = "Cancel";

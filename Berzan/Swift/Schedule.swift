@@ -11,24 +11,6 @@ import XLPagerTabStrip
 import Kingfisher
 import RMPickerViewController
 
-class ClassListActionController: RMActionController<UITableView> {
-    required override init?(style aStyle: RMActionControllerStyle, title aTitle: String?, message aMessage: String?, select selectAction: RMAction<UITableView>?, andCancel cancelAction: RMAction<UITableView>?) {
-        super.init(style: aStyle, title: aTitle, message: aMessage, select: selectAction, andCancel: cancelAction)
-        
-        self.contentView = UITableView.init(frame: CGRect.zero, style: .plain)
-        self.contentView.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.backgroundColor = UIColor.white
-        
-        let bindings = ["contentView": self.contentView];
-        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "[contentView(>=300)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: bindings))
-        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[contentView(200)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: bindings))
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder);
-    }
-}
-
 class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDataSource, UITableViewDelegate {
     
     var scheduleList = [ScheduleViewController]()
@@ -40,7 +22,7 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
     override func viewDidLoad() {
         setupTabs()
         
-        classListArray = UserDefaults.standard.array(forKey: "temp-class-list") as? [String] ?? [""]
+        classListArray = UserDefaults.standard.array(forKey: "temp-class-list") as? [String] ?? []
         
         /*
          *
@@ -66,6 +48,10 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
         
         //iOS 8 & 9
         self.tabBarController?.tabBar.tintColor = UIColor.white
+        
+        //Get default class
+        currentClass = (UserDefaults.standard.string(forKey: "default-class")) ?? ""
+        updateCurrentClass()
         
         /*
          *
@@ -394,3 +380,22 @@ class ScheduleViewController:UIViewController, IndicatorInfoProvider {
         }
     }
 }
+
+class ClassListActionController: RMActionController<UITableView> {
+    required override init?(style aStyle: RMActionControllerStyle, title aTitle: String?, message aMessage: String?, select selectAction: RMAction<UITableView>?, andCancel cancelAction: RMAction<UITableView>?) {
+        super.init(style: aStyle, title: aTitle, message: aMessage, select: selectAction, andCancel: cancelAction)
+        
+        self.contentView = UITableView.init(frame: CGRect.zero, style: .plain)
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.backgroundColor = UIColor.white
+        
+        let bindings = ["contentView": self.contentView];
+        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "[contentView(>=300)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: bindings))
+        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[contentView(200)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: bindings))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder);
+    }
+}
+
