@@ -14,6 +14,8 @@
 "wednesday-short" = "Ons";
 "thursday-short" = "Tor";
 "friday-short" = "Fre";
+"add-class" = "Lägg till klass";
+"delete-class" = "Ta bort klass %@";
 
 //Generic
 "select" = "Välj";
@@ -21,3 +23,7 @@
 "this-week" = "Denna Vecka";
 "select-class-title" = "Välj Klass";
 "edit" = "Ändra";
+"edit-class-list-title" = "Ändra klasser";
+"back" = "Tillbaks";
+"add" = "Lägg till";
+"delete" = "Ta bort";

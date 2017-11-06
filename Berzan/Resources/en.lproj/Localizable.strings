@@ -14,6 +14,8 @@
 "wednesday-short" = "Wed";
 "thursday-short" = "Thu";
 "friday-short" = "Fri";
+"add-class" = "Add Class";
+"delete-class" = "Delete Class %@";
 
 //Generic
 "select" = "Select";
@@ -21,3 +23,7 @@
 "this-week" = "This Week";
 "select-class-title" = "Select class";
 "edit" = "Edit";
+"edit-class-list-title" = "Edit class list";
+"back" = "Back";
+"add" = "Add";
+"delete" = "Delete";

@@ -10,13 +10,12 @@ import UIKit
 import XLPagerTabStrip
 import Kingfisher
 import RMPickerViewController
-import RETableViewManager
 
 class ClassListActionController: RMActionController<UITableView> {
     required override init?(style aStyle: RMActionControllerStyle, title aTitle: String?, message aMessage: String?, select selectAction: RMAction<UITableView>?, andCancel cancelAction: RMAction<UITableView>?) {
         super.init(style: aStyle, title: aTitle, message: aMessage, select: selectAction, andCancel: cancelAction)
         
-        self.contentView = UITableView()
+        self.contentView = UITableView.init(frame: CGRect.zero, style: .plain)
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.backgroundColor = UIColor.white
         
@@ -30,14 +29,26 @@ class ClassListActionController: RMActionController<UITableView> {
     }
 }
 
-class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDataSource, UITableViewDelegate {
     
     var scheduleList = [ScheduleViewController]()
     var week: Int = 0
+    var classListArray = [String]()
+    var currentClass: String = ""
     
     //General view setup
     override func viewDidLoad() {
         setupTabs()
+        
+        classListArray = UserDefaults.standard.array(forKey: "temp-class-list") as! [String]
+        
+        /*
+         *
+         * REMINDER
+         * ========
+         * Set currentClass to the default class in settings
+         *
+         */
         
         super.viewDidLoad()
     }
@@ -132,11 +143,18 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
     //Class picker
     @IBAction func selectClass(_ sender: Any) {
         
+        showMainClassSelector()
+    }
+    
+    func showMainClassSelector() {
+        
         let cancelAction = RMAction<UITableView>(title: NSLocalizedString("cancel", comment:""), style:.cancel) { _ in
         }
         
         let editAction = RMAction<UITableView>(title: NSLocalizedString("edit", comment:""), style:.done) { _ in
-            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                self.showEditClassList()
+            })
         }
         
         let selectAction = RMAction<UITableView>(title: NSLocalizedString("select", comment:""), style:.done) { controller in
@@ -148,21 +166,144 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
         actionController.disableBouncingEffects = true
         actionController.addAction(editAction!)
         actionController.view.tintColor = UIColor(red:0.53, green:0.08, blue:0.22, alpha:1.0)
-    
+        
         let classListTable = actionController.contentView
-        let classListManager = RETableViewManager.init(tableView: classListTable)
         
-        let baseSection = RETableViewSection.init()
+        classListTable.tag = 1
         
-        baseSection.addItem(RETableViewItem.init(title: "Test"))
-        baseSection.addItem(RETableViewItem.init(title: "Test"))
-        baseSection.addItem(RETableViewItem.init(title: "Test"))
-        baseSection.addItem(RETableViewItem.init(title: "Test"))
-        
-        classListManager?.addSection(baseSection)
+        classListTable.tableFooterView = nil
+        classListTable.tableHeaderView = nil
+        classListTable.delegate = self;
+        classListTable.dataSource = self;
         
         //Again...
         tabBarController?.present(actionController, animated: true, completion:nil)
+    }
+    
+    func showEditClassList() {
+        
+        let addAction = RMAction<UITableView>(title: NSLocalizedString("add", comment: ""), style:.cancel) { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                let inputAlertController = UIAlertController.init(title: NSLocalizedString("add-class", comment: ""), message: "", preferredStyle: .alert)
+                
+                let addAction = UIAlertAction.init(title: NSLocalizedString("add", comment: ""), style: .default, handler: { _ in
+            
+                    self.classListArray.append(inputAlertController.textFields![0].text!)
+            
+                    UserDefaults.standard.setValue(self.classListArray, forKey: "temp-class-list")
+                    UserDefaults.standard.synchronize()
+                    
+                    self.showEditClassList()
+                })
+                
+                let cancelAction = UIAlertAction.init(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: { _ in
+                   self.showEditClassList()
+                })
+
+                inputAlertController.addAction(addAction)
+                inputAlertController.addAction(cancelAction)
+                inputAlertController.addTextField(configurationHandler: nil)
+                
+                inputAlertController.view.tintColor = UIColor(red:0.53, green:0.08, blue:0.22, alpha:1.0)
+                
+                self.present(inputAlertController, animated: true, completion: nil)
+            })
+        }
+        
+        let backAction = RMAction<UITableView>(title: NSLocalizedString("back", comment: ""), style:.done) { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                self.showMainClassSelector()
+            })
+        }
+        
+        let actionController = ClassListActionController(style:.white, title: NSLocalizedString("edit-class-list-title", comment: ""), message:"", select:addAction, andCancel:backAction)
+        
+        actionController?.disableBlurEffects = true
+        actionController?.disableBouncingEffects = true
+        actionController?.view.tintColor = UIColor(red:0.53, green:0.08, blue:0.22, alpha:1.0)
+        
+        let classListTable = actionController?.contentView
+        
+        classListTable?.tag = 2
+        
+        classListTable?.tableFooterView = nil
+        classListTable?.tableHeaderView = nil
+        classListTable?.delegate = self;
+        classListTable?.dataSource = self;
+        
+        tabBarController?.present(actionController!, animated: true, completion:nil)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return classListArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        
+        if cell == nil {
+            cell = UITableViewCell.init(style: .default, reuseIdentifier: "cell")
+        }
+        
+        cell?.textLabel?.text = classListArray[indexPath.row]
+        
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if tableView.tag == 1 {
+            
+            self.currentClass = classListArray[indexPath.row]
+            
+            self.updateCurrentClass()
+            
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            
+            self.dismiss(animated: true, completion: nil)
+            
+            tableView.deselectRow(at: indexPath, animated: true)
+            let selectedClass = tableView.cellForRow(at: indexPath)?.textLabel?.text
+            
+            let deleteConfirmController = UIAlertController.init(title: String(format: NSLocalizedString("delete-class", comment: ""), selectedClass!), message: nil, preferredStyle: .alert)
+            
+            let confirmAction = UIAlertAction.init(title: NSLocalizedString("delete", comment: ""), style: .destructive, handler: {_ in
+                
+                self.classListArray = self.classListArray.filter{$0 != selectedClass}
+
+                UserDefaults.standard.setValue(self.classListArray, forKey: "temp-class-list")
+                UserDefaults.standard.synchronize()
+                
+                if self.currentClass == selectedClass {
+                    if self.classListArray.count != 0 {
+                        self.currentClass = self.classListArray[0]
+                        self.updateCurrentClass()
+                    } else {
+                        self.currentClass = ""
+                        self.updateCurrentClass()
+                    }
+                }
+                
+                self.showEditClassList()
+            })
+            
+            let cancelAction = UIAlertAction.init(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: {_ in
+                self.showEditClassList()
+            })
+            
+            deleteConfirmController.addAction(confirmAction)
+            deleteConfirmController.addAction(cancelAction)
+            
+            self.present(deleteConfirmController, animated: true)
+            
+            deleteConfirmController.view.tintColor = UIColor(red:0.53, green:0.08, blue:0.22, alpha:1.0)
+        }
     }
     
     //Other
@@ -177,20 +318,27 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
             scheduleView.loadSchedule()
         }
     }
+    
+    func updateCurrentClass() {
+        for scheduleView: ScheduleViewController in scheduleList {
+            scheduleView.currentClass = self.currentClass
+        }
+        
+        self.reloadSchedules()
+    }
 }
 
 class ScheduleViewController:UIViewController, IndicatorInfoProvider {
     
     var itemIndex: Int
     var itemTitle: String
-    var scheduleView: UIImageView?
-    var week: Int
+    var scheduleView: UIImageView? = nil
+    var week: Int = 0
+    var currentClass: String = ""
     
     init(title: String, index: Int) {
         itemTitle = title
         itemIndex = index
-        scheduleView = nil
-        week = 0
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -242,7 +390,7 @@ class ScheduleViewController:UIViewController, IndicatorInfoProvider {
             let viewWidth = Int((scheduleView?.bounds.width)!)
             
             scheduleView?.kf.indicatorType = .activity
-            scheduleView?.kf.setImage(with: URL(string: "http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=89920/\(NSLocalizedString("schedule-lan", comment: ""))&type=-1&id=na15c&period=&week=\(week)&mode=0&printer=0&colors=32&head=0&clock=0&foot=0&day=\(itemIndex)&width=\(viewWidth)&height=\(viewHeight)&maxwidth=\(viewWidth)&maxheight=\(viewHeight)"))
+            scheduleView?.kf.setImage(with: URL(string: "http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=89920/\(NSLocalizedString("schedule-lan", comment: ""))&type=-1&id=\(currentClass)&period=&week=\(week)&mode=0&printer=0&colors=32&head=0&clock=0&foot=0&day=\(itemIndex)&width=\(viewWidth)&height=\(viewHeight)&maxwidth=\(viewWidth)&maxheight=\(viewHeight)"))
         }
     }
 }
