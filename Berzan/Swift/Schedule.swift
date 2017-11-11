@@ -202,7 +202,7 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
             })
         }
         
-        let actionController = ClassListActionController(style:.white, title: NSLocalizedString("edit-class-list-title", comment: ""), message:"", select:addAction, andCancel:backAction)
+        let actionController = ClassListActionController(style:.white, title: NSLocalizedString("edit-class-list-title", comment: ""), message: NSLocalizedString("edit-class-list-message", comment: ""), select:addAction, andCancel:backAction)
         
         actionController?.disableBlurEffects = true
         actionController?.disableBouncingEffects = true

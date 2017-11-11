@@ -31,6 +31,7 @@
 "select-class-title" = "Välj Klass";
 "edit" = "Redigera";
 "edit-class-list-title" = "Ändra klasser";
+"edit-class-list-message" = "Tryck på en klass för att ta bort den.";
 "back" = "Tillbaks";
 "add" = "Lägg till";
 "delete" = "Ta bort";

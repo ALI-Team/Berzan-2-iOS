@@ -31,6 +31,7 @@
 "select-class-title" = "Select class";
 "edit" = "Edit";
 "edit-class-list-title" = "Edit class list";
+"edit-class-list-message" = "Click on a class to delete it.";
 "back" = "Back";
 "add" = "Add";
 "delete" = "Delete";
