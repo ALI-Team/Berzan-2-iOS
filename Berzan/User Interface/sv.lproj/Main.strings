@@ -14,5 +14,8 @@
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "Fe3-eD-4Qr"; */
 "Fe3-eD-4Qr.title" = "Inställningar";
 
+/* Class = "UINavigationItem"; title = "Skolmat"; ObjectID = "6T0-OY-rID"; */
+"6T0-OY-rID.title" = "Skolmat";
 
-
+/* Class = "UITabBarItem"; title = "School Food"; ObjectID = "Esa-0u-C1y"; */
+"Esa-0u-C1y.title" = "Skolmat";

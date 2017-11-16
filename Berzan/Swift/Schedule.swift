@@ -22,15 +22,8 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
     override func viewDidLoad() {
         setupTabs()
         
+        //Get list of classes
         classListArray = UserDefaults.standard.array(forKey: "temp-class-list") as? [String] ?? []
-        
-        /*
-         *
-         * REMINDER
-         * ========
-         * Set currentClass to the default class in settings
-         *
-         */
         
         super.viewDidLoad()
     }
@@ -74,8 +67,8 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
     }
     
     func setupTabs() {
-        settings.style.buttonBarBackgroundColor = UIColor(red:0.53, green:0.08, blue:0.22, alpha:1.0)
-        settings.style.buttonBarItemBackgroundColor = UIColor(red:0.53, green:0.08, blue:0.22, alpha:1.0)
+        settings.style.buttonBarBackgroundColor = self.navigationController?.navigationBar.barTintColor
+        settings.style.buttonBarItemBackgroundColor = settings.style.buttonBarBackgroundColor
         settings.style.selectedBarBackgroundColor = UIColor.white
         settings.style.selectedBarHeight = 2
         settings.style.buttonBarItemLeftRightMargin = 2
@@ -94,7 +87,7 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
         }
         
         let selectAction = RMAction<UIPickerView>(title: NSLocalizedString("select", comment:""), style:.done) { controller in
-            self.week = controller.contentView.selectedRow(inComponent: 0)
+            self.week = controller.contentView.selectedRow(inComponent: 0) + 1
             self.setWeek()
             self.reloadSchedules()
         }

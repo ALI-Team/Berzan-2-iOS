@@ -13,3 +13,9 @@
 
 /* Class = "UINavigationItem"; title = "Schedule"; ObjectID = "iW3-pl-9ok"; */
 "iW3-pl-9ok.title" = "Schedule";
+
+/* Class = "UINavigationItem"; title = "Skolmat"; ObjectID = "6T0-OY-rID"; */
+"6T0-OY-rID.title" = "School Food";
+
+/* Class = "UITabBarItem"; title = "School Food"; ObjectID = "Esa-0u-C1y"; */
+"Esa-0u-C1y.title" = "School Food";

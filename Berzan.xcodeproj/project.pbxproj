@@ -19,6 +19,7 @@
 		A11EB04B1FAD5713000D5E25 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EB04A1FAD5713000D5E25 /* Schedule.swift */; };
 		A17056F71FADC7030053AA21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A17056F91FADC7030053AA21 /* Localizable.strings */; };
 		A1AB889B1FB0F09700FFAF49 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB889A1FB0F09700FFAF49 /* Settings.swift */; };
+		A1B4305D1FBE2EFC00FE2920 /* SchoolFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B4305C1FBE2EFC00FE2920 /* SchoolFood.swift */; };
 		A1BEE4601FB10AA1008C25E5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1BEE45F1FB10AA1008C25E5 /* MessageUI.framework */; };
 		B1BBB5F286C2FFFF5BDFA34B /* Pods_Berzan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4AFD6B7229E331C7BE13AD /* Pods_Berzan.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		A1AB889D1FB0F54B00FFAF49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A1AB889F1FB0F54B00FFAF49 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A1AB88A11FB0F56000FFAF49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		A1B4305C1FBE2EFC00FE2920 /* SchoolFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolFood.swift; sourceTree = "<group>"; };
 		A1B754E01FADEA2100626285 /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XLPagerTabStrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B754E21FADEA2D00626285 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1BEE45F1FB10AA1008C25E5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -162,6 +164,7 @@
 			children = (
 				A11EB0131FAD4FBE000D5E25 /* AppDelegate.swift */,
 				A11EB04A1FAD5713000D5E25 /* Schedule.swift */,
+				A1B4305C1FBE2EFC00FE2920 /* SchoolFood.swift */,
 				A1AB889A1FB0F09700FFAF49 /* Settings.swift */,
 			);
 			path = Swift;
@@ -512,6 +515,7 @@
 				A1AB889B1FB0F09700FFAF49 /* Settings.swift in Sources */,
 				A11EB04B1FAD5713000D5E25 /* Schedule.swift in Sources */,
 				A11EB0141FAD4FBE000D5E25 /* AppDelegate.swift in Sources */,
+				A1B4305D1FBE2EFC00FE2920 /* SchoolFood.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
