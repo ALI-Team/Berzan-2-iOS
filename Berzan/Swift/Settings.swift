@@ -163,6 +163,21 @@ class CreditsViewController: UITableViewController {
             item?.deselectRow(animated: true)
         }))
         
+        mainSection.addItem(RETableViewItem.init(title: "Alamofire", accessoryType: .none, selectionHandler: {item in
+            
+            guard let url = URL(string: "https://github.com/Alamofire/Alamofire") else {
+                return //be safe
+            }
+            
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+            
+            item?.deselectRow(animated: true)
+        }))
+        
         manager?.addSection(mainSection)
         
         super.viewDidLoad()

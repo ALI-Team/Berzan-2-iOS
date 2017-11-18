@@ -9,13 +9,20 @@
 //Schedule
 "schedule-lan" = "sv-se";
 "week-prefix" = "V.";
+"add-class" = "Lägg till klass";
+"delete-class" = "Ta bort klass %@";
+
+//Days
 "monday-short" = "Mån";
 "tuesday-short" = "Tis";
 "wednesday-short" = "Ons";
 "thursday-short" = "Tor";
 "friday-short" = "Fre";
-"add-class" = "Lägg till klass";
-"delete-class" = "Ta bort klass %@";
+"monday" = "Måndag";
+"tuesday" = "Tisdag";
+"wednesday" = "Onsdag";
+"thursday" = "Torsdag";
+"friday" = "Fredag";
 
 //Settings
 "about" = "Om";

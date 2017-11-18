@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.5.1)
   - Kingfisher (4.2.0)
   - REFormattedNumberField (1.1.6)
   - RETableViewManager (1.7):
@@ -11,12 +12,14 @@ PODS:
   - XLPagerTabStrip (8.0.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.5)
   - Kingfisher (~> 4.0)
   - RETableViewManager (~> 1.6)
   - RMPickerViewController (~> 2.3.1)
   - XLPagerTabStrip (~> 8.0)
 
 SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
   REFormattedNumberField: 70fc5fb1218ebd5ee9983820defd12806d5c6ec6
   RETableViewManager: 0f24d796c42c0890d38c79cc9aeb3871e186726e
@@ -25,6 +28,6 @@ SPEC CHECKSUMS:
   RMPickerViewController: 4398994985b34d92f3f3e12f535ac0199f2937d4
   XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
 
-PODFILE CHECKSUM: f26331e79af7e8e8ef6665fdcd9816c9de87daa2
+PODFILE CHECKSUM: f944df1095d9fbfd05bba875e22b4f65f442c3de
 
 COCOAPODS: 1.2.0

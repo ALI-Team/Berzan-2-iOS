@@ -9,13 +9,20 @@
 //Schedule
 "schedule-lan" = "en-gb";
 "week-prefix" = "W.";
+"add-class" = "Add Class";
+"delete-class" = "Delete Class %@";
+
+//Days
 "monday-short" = "Mon";
 "tuesday-short" = "Tue";
 "wednesday-short" = "Wed";
 "thursday-short" = "Thu";
 "friday-short" = "Fri";
-"add-class" = "Add Class";
-"delete-class" = "Delete Class %@";
+"monday" = "Monday";
+"tuesday" = "Tuesday";
+"wednesday" = "Wednesday";
+"thursday" = "Thursday";
+"friday" = "Friday";
 
 //Settings
 "about" = "About";

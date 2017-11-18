@@ -10,6 +10,7 @@ target 'Berzan' do
   pod 'Kingfisher', '~> 4.0'
   pod "RMPickerViewController", "~> 2.3.1"
   pod 'RETableViewManager', '~> 1.6'
+  pod 'Alamofire', '~> 4.5'
   
   target 'BerzanTests' do
     inherit! :search_paths
