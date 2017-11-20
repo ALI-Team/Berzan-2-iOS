@@ -9,6 +9,13 @@
 import UIKit
 import Alamofire
 
+class SchoolFoodCell:UITableViewCell {
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var item0Label: UILabel!
+    @IBOutlet weak var item1Label: UILabel!
+    @IBOutlet weak var item2Label: UILabel!
+}
+
 class SchoolFood:UITableViewController {
     
     var contentArray = [AnyObject]()
@@ -20,9 +27,14 @@ class SchoolFood:UITableViewController {
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(reloadTableView(_:)), for: .valueChanged)
         
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 100
+        
         //Other UI setup
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         UIApplication.shared.statusBarStyle = .lightContent
+        
+        reloadTableView(self.refreshControl!)
     }
     
     //UITableView Setup
@@ -56,30 +68,26 @@ class SchoolFood:UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SchoolFoodCell
         
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "cell")
-        }
-        
-        cell?.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        cell?.textLabel?.numberOfLines = 0
+        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        cell.textLabel?.numberOfLines = 0
         
         switch indexPath.row {
         case 0:
-            cell?.textLabel?.text = NSLocalizedString("monday", comment: "")
+            cell.dayLabel.text = NSLocalizedString("monday-short", comment: "")
             break
         case 1:
-            cell?.textLabel?.text = NSLocalizedString("tuesday", comment: "")
+            cell.dayLabel.text = NSLocalizedString("tuesday-short", comment: "")
             break
         case 2:
-            cell?.textLabel?.text = NSLocalizedString("wednesday", comment: "")
+            cell.dayLabel.text = NSLocalizedString("wednesday-short", comment: "")
             break
         case 3:
-            cell?.textLabel?.text = NSLocalizedString("thursday", comment: "")
+            cell.dayLabel.text = NSLocalizedString("thursday-short", comment: "")
             break
         case 4:
-            cell?.textLabel?.text = NSLocalizedString("friday", comment: "")
+            cell.dayLabel.text = NSLocalizedString("friday-short", comment: "")
             break
         default:
             break
@@ -87,12 +95,31 @@ class SchoolFood:UITableViewController {
         
         if contentArray.count > 0 {
             
+            let content = contentArray[indexPath.row]["items"]! as! NSArray
+            
+            /*var content = (contentArray[indexPath.row] as! Dictionary)["items"]
+            
             var contentString = (contentArray[indexPath.row]["items"]! as! Array).joined(separator: "\n")
             contentString = contentString.replacingOccurrences(of: "\\(.{0,}\\)", with: "", options: .regularExpression)
+            */
             
-            cell?.detailTextLabel?.text = contentString
+            for i in 0...2 {
+                switch i {
+                case 0:
+                    cell.item0Label.text = (content[i] as! String).replacingOccurrences(of: "\\(.{0,}\\)", with: "", options: .regularExpression)
+                    break
+                case 1:
+                    cell.item1Label.text = (content[i] as! String).replacingOccurrences(of: "\\(.{0,}\\)", with: "", options: .regularExpression)
+                    break
+                case 2:
+                    cell.item2Label.text = (content[i] as! String).replacingOccurrences(of: "\\(.{0,}\\)", with: "", options: .regularExpression)
+                    break
+                default:
+                    break
+                }
+            }
         }
         
-        return cell!;
+        return cell
     }
 }
