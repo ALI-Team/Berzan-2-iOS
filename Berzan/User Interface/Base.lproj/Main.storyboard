@@ -192,7 +192,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Mx0-Yr-hWV" firstAttribute="top" secondItem="Yhq-i6-Sel" secondAttribute="topMargin" id="ABJ-4W-3U8"/>
-                                        <constraint firstItem="ho5-pN-cbP" firstAttribute="bottom" secondItem="Yhq-i6-Sel" secondAttribute="bottomMargin" id="ErA-ZU-koH"/>
+                                        <constraint firstItem="ho5-pN-cbP" firstAttribute="top" secondItem="bTb-ml-Kig" secondAttribute="top" id="ErA-ZU-koH"/>
                                         <constraint firstItem="TNR-lr-OoG" firstAttribute="top" secondItem="fkL-Gc-I8K" secondAttribute="bottom" constant="10" id="GGJ-Vd-8Um"/>
                                         <constraint firstItem="bTb-ml-Kig" firstAttribute="leading" secondItem="msD-V7-k6a" secondAttribute="trailing" constant="20" id="JhK-sZ-tn6"/>
                                         <constraint firstItem="ho5-pN-cbP" firstAttribute="trailing" secondItem="Yhq-i6-Sel" secondAttribute="trailingMargin" id="Nkg-zh-wVN"/>
@@ -208,7 +208,7 @@
                                         <constraint firstItem="Mx0-Yr-hWV" firstAttribute="leading" secondItem="fkL-Gc-I8K" secondAttribute="trailing" constant="15" id="gOq-tk-foq"/>
                                         <constraint firstItem="bTb-ml-Kig" firstAttribute="bottom" secondItem="Yhq-i6-Sel" secondAttribute="bottomMargin" id="hyf-NP-iCQ"/>
                                         <constraint firstItem="msD-V7-k6a" firstAttribute="top" secondItem="Yhq-i6-Sel" secondAttribute="topMargin" id="klE-es-CpI"/>
-                                        <constraint firstItem="3d0-GI-rGw" firstAttribute="centerY" secondItem="Yhq-i6-Sel" secondAttribute="centerY" id="l0a-Gf-iCx"/>
+                                        <constraint firstItem="3d0-GI-rGw" firstAttribute="top" secondItem="TNR-lr-OoG" secondAttribute="top" id="l0a-Gf-iCx"/>
                                         <constraint firstItem="ho5-pN-cbP" firstAttribute="leading" secondItem="bTb-ml-Kig" secondAttribute="trailing" constant="15" id="lg4-bs-7XW"/>
                                         <constraint firstItem="TNR-lr-OoG" firstAttribute="top" secondItem="fkL-Gc-I8K" secondAttribute="bottom" constant="10" id="mwJ-43-aUS"/>
                                         <constraint firstItem="Mx0-Yr-hWV" firstAttribute="leading" secondItem="fkL-Gc-I8K" secondAttribute="trailing" constant="15" id="vkj-id-0md"/>

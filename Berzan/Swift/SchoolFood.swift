@@ -97,12 +97,6 @@ class SchoolFood:UITableViewController {
             
             let content = contentArray[indexPath.row]["items"]! as! NSArray
             
-            /*var content = (contentArray[indexPath.row] as! Dictionary)["items"]
-            
-            var contentString = (contentArray[indexPath.row]["items"]! as! Array).joined(separator: "\n")
-            contentString = contentString.replacingOccurrences(of: "\\(.{0,}\\)", with: "", options: .regularExpression)
-            */
-            
             for i in 0...2 {
                 switch i {
                 case 0:
