@@ -32,9 +32,17 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
         let classSelector = RETextItem.init(title: NSLocalizedString("class", comment: ""), value: UserDefaults.standard.string(forKey: "default-class"))
         classSelector?.onChange = {_ in
             UserDefaults.standard.set(classSelector?.value, forKey: "default-class")
+            UserDefaults.standard.synchronize()
+        }
+        
+        let nextWeek = REBoolItem.init(title: NSLocalizedString("next-week", comment: ""), value: UserDefaults.standard.bool(forKey: "next-week"))
+        nextWeek?.switchValueChangeHandler = {_ in
+            UserDefaults.standard.set(nextWeek?.value, forKey: "next-week")
+            UserDefaults.standard.synchronize()
         }
         
         scheduleSection?.addItem(classSelector)
+        scheduleSection?.addItem(nextWeek)
         
         let aboutSection = RETableViewSection.init(headerTitle: NSLocalizedString("about", comment: ""))
         

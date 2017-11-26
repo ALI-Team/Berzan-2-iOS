@@ -30,6 +30,7 @@
 "credits" = "Tack till";
 "by-aliteam" = "av ALI-Team";
 "class" = "Klass";
+"next-week" = "Nästa vecka under helg";
 
 //Generic
 "select" = "Välj";

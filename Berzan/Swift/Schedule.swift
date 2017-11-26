@@ -33,7 +33,6 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
         
         //Setup week
         self.week = Calendar.current.component(.weekOfYear, from: Date())
-        setWeek()
         
         //Other UI setup
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
@@ -53,6 +52,22 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
          * Scrolling to the day with moveToViewController(at index: Int) does not currently work with XLPagerStrip, waiting for a fix
          *
          */
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //Show appropriate day (if set in settings)
+        let day = Calendar.current.ordinality(of: .weekday, in: .weekOfYear, for: Date())
+        
+        if day! < 6 {
+            moveToViewController(at: 3, animated: false)
+        } else if UserDefaults.standard.bool(forKey: "next-week") {
+            week += 1
+        }
+        
+        setWeek()
+        reloadSchedules()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -367,6 +382,8 @@ class ScheduleViewController:UIViewController, IndicatorInfoProvider {
         if scheduleView?.bounds != nil {
             let viewHeight = Int((scheduleView?.bounds.height)!)
             let viewWidth = Int((scheduleView?.bounds.width)!)
+            
+            print("http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=89920/\(NSLocalizedString("schedule-lan", comment: ""))&type=-1&id=\(currentClass)&period=&week=\(week)&mode=0&printer=0&colors=32&head=0&clock=0&foot=0&day=\(itemIndex)&width=\(viewWidth)&height=\(viewHeight)&maxwidth=\(viewWidth)&maxheight=\(viewHeight)")
             
             scheduleView?.kf.indicatorType = .activity
             scheduleView?.kf.setImage(with: URL(string: "http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=89920/\(NSLocalizedString("schedule-lan", comment: ""))&type=-1&id=\(currentClass)&period=&week=\(week)&mode=0&printer=0&colors=32&head=0&clock=0&foot=0&day=\(itemIndex)&width=\(viewWidth)&height=\(viewHeight)&maxwidth=\(viewWidth)&maxheight=\(viewHeight)"))
