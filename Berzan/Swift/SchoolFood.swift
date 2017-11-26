@@ -14,6 +14,9 @@ class SchoolFoodCell:UITableViewCell {
     @IBOutlet weak var item0Label: UILabel!
     @IBOutlet weak var item1Label: UILabel!
     @IBOutlet weak var item2Label: UILabel!
+    @IBOutlet weak var emoji0Label: UILabel!
+    @IBOutlet weak var emoji1Label: UILabel!
+    @IBOutlet weak var emoji2Label: UILabel!
 }
 
 class SchoolFood:UITableViewController {
@@ -29,14 +32,19 @@ class SchoolFood:UITableViewController {
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
+        self.tableView.layoutMargins = UIEdgeInsets.zero
+        self.tableView.separatorInset = UIEdgeInsets.zero
         
         //Other UI setup
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         UIApplication.shared.statusBarStyle = .lightContent
         
+        self.refreshControl!.beginRefreshing()
+        self.tableView.setContentOffset(CGPoint(x: 0, y: -refreshControl!.frame.size.height), animated: true)
+        
         reloadTableView(self.refreshControl!)
     }
-    
+
     //UITableView Setup
     @IBAction func reloadTableView(_ sender: UIRefreshControl) {
         
@@ -70,7 +78,7 @@ class SchoolFood:UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SchoolFoodCell
         
-        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        cell.layoutMargins = UIEdgeInsets.zero
         cell.textLabel?.numberOfLines = 0
         
         switch indexPath.row {
@@ -101,12 +109,15 @@ class SchoolFood:UITableViewController {
                 switch i {
                 case 0:
                     cell.item0Label.text = (content[i] as! String).replacingOccurrences(of: "\\(.{0,}\\)", with: "", options: .regularExpression)
+                    cell.emoji0Label.text = emojiForLine(input: (content[i] as! String))
                     break
                 case 1:
                     cell.item1Label.text = (content[i] as! String).replacingOccurrences(of: "\\(.{0,}\\)", with: "", options: .regularExpression)
+                    cell.emoji1Label.text = emojiForLine(input: (content[i] as! String))
                     break
                 case 2:
                     cell.item2Label.text = (content[i] as! String).replacingOccurrences(of: "\\(.{0,}\\)", with: "", options: .regularExpression)
+                    cell.emoji2Label.text = emojiForLine(input: (content[i] as! String))
                     break
                 default:
                     break
@@ -115,5 +126,31 @@ class SchoolFood:UITableViewController {
         }
         
         return cell
+    }
+    
+    func emojiForLine(input: String) -> String {
+        let tagRegex = "\\(([^,)]+)"
+        
+        if input.range(of: tagRegex, options: .regularExpression, range: nil, locale: nil) != nil {
+            var tag = input[input.range(of: tagRegex, options: .regularExpression, range: nil, locale: nil)!]
+            tag.remove(at: tag.startIndex)
+            
+            switch tag {
+            case "Fågel":
+                return "🐦"
+            case "Fisk":
+                return "🐟"
+            case "Ko":
+                return "🐄"
+            case "Fläsk":
+                return "🐖"
+            case "Vegetariskt":
+                return "🍏"
+            default:
+                return "b"
+            }
+        } else {
+            return "a"
+        }
     }
 }
