@@ -42,3 +42,9 @@
 "back" = "Back";
 "add" = "Add";
 "delete" = "Delete";
+
+//Error
+"connection-error" = "Connection Error";
+"check-internet" = "Check your internet connection";
+"error" = "Error";
+"food-fail" = "Unable to load school food";

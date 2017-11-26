@@ -42,3 +42,9 @@
 "back" = "Tillbaks";
 "add" = "Lägg till";
 "delete" = "Ta bort";
+
+//Error
+"connection-error" = "Uppkopplingsfel";
+"check-internet" = "Kontrollera internetuppkoppling";
+"error" = "Fel";
+"food-fail" = "Kunde inte ladda skolmaten";

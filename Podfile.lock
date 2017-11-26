@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.5.1)
-  - Kingfisher (4.2.0)
+  - Kingfisher (4.3.1)
   - REFormattedNumberField (1.1.6)
   - RETableViewManager (1.7):
     - REFormattedNumberField (~> 1.1.5)
@@ -20,7 +20,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
+  Kingfisher: 75541c4b62f02e1fde6f9772303de3d9ebe8f5b3
   REFormattedNumberField: 70fc5fb1218ebd5ee9983820defd12806d5c6ec6
   RETableViewManager: 0f24d796c42c0890d38c79cc9aeb3871e186726e
   REValidation: 38c4de1be58455f8b00aab208ac80db316a66b7f
