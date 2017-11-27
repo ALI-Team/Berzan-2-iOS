@@ -21,6 +21,7 @@
 		A1AB889B1FB0F09700FFAF49 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB889A1FB0F09700FFAF49 /* Settings.swift */; };
 		A1B4305D1FBE2EFC00FE2920 /* SchoolFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B4305C1FBE2EFC00FE2920 /* SchoolFood.swift */; };
 		A1BEE4601FB10AA1008C25E5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1BEE45F1FB10AA1008C25E5 /* MessageUI.framework */; };
+		A1BF582B1FCCB89C00F01433 /* Kåren-Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BF582A1FCCB89C00F01433 /* Kåren-Login.swift */; };
 		B1BBB5F286C2FFFF5BDFA34B /* Pods_Berzan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4AFD6B7229E331C7BE13AD /* Pods_Berzan.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		A1B754E01FADEA2100626285 /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XLPagerTabStrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B754E21FADEA2D00626285 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1BEE45F1FB10AA1008C25E5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A1BF582A1FCCB89C00F01433 /* Kåren-Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kåren-Login.swift"; sourceTree = "<group>"; };
 		AE4AFD6B7229E331C7BE13AD /* Pods_Berzan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Berzan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0911FE6EA6FA7AE5A0DA03C /* Pods-Berzan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Berzan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Berzan/Pods-Berzan.debug.xcconfig"; sourceTree = "<group>"; };
 		C314A42D3848C583337FE514 /* Pods-Berzan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Berzan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Berzan/Pods-Berzan.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				A11EB04A1FAD5713000D5E25 /* Schedule.swift */,
 				A1B4305C1FBE2EFC00FE2920 /* SchoolFood.swift */,
 				A1AB889A1FB0F09700FFAF49 /* Settings.swift */,
+				A1BF582A1FCCB89C00F01433 /* Kåren-Login.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				A1AB889B1FB0F09700FFAF49 /* Settings.swift in Sources */,
 				A11EB04B1FAD5713000D5E25 /* Schedule.swift in Sources */,
 				A11EB0141FAD4FBE000D5E25 /* AppDelegate.swift in Sources */,
+				A1BF582B1FCCB89C00F01433 /* Kåren-Login.swift in Sources */,
 				A1B4305D1FBE2EFC00FE2920 /* SchoolFood.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
