@@ -49,3 +49,9 @@
 "check-internet" = "Kontrollera internetuppkoppling";
 "error" = "Fel";
 "food-fail" = "Kunde inte ladda skolmaten";
+
+//Kåren
+"login" = "Logga in";
+"register" = "Registrering";
+"username" = "Användarnamn";
+"password" = "Lösenord";

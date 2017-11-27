@@ -17,6 +17,9 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
     
     override func viewDidLoad() {
         
+        UITextField.appearance().tintColor = self.navigationController?.navigationBar.barTintColor
+        UIToolbar.appearance().tintColor = self.navigationController?.navigationBar.barTintColor
+        
         //Other UI setup
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         UIApplication.shared.statusBarStyle = .lightContent
@@ -29,7 +32,7 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
         
         let scheduleSection = RETableViewSection.init(headerTitle: NSLocalizedString("schedule", comment: ""))
         
-        let classSelector = RETextItem.init(title: NSLocalizedString("class", comment: ""), value: UserDefaults.standard.string(forKey: "default-class"))
+        let classSelector = RETextItem.init(title: "", value: UserDefaults.standard.string(forKey: "default-class"), placeholder: NSLocalizedString("class", comment: ""))
         classSelector?.onChange = {_ in
             UserDefaults.standard.set(classSelector?.value, forKey: "default-class")
             UserDefaults.standard.synchronize()

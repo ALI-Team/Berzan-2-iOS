@@ -49,3 +49,9 @@
 "check-internet" = "Check your internet connection";
 "error" = "Error";
 "food-fail" = "Unable to load school food";
+
+//Kåren
+"login" = "Log in";
+"register" = "Register";
+"username" = "Username";
+"password" = "Password";
