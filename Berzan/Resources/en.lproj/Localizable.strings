@@ -26,7 +26,7 @@
 
 //Settings
 "about" = "About";
-"mail" = "Email the developer";
+"mail-dev" = "Email the developer";
 "credits" = "Credits";
 "by-aliteam" = "by ALI-Team";
 "class" = "Class";
@@ -55,3 +55,14 @@
 "register" = "Register";
 "username" = "Username";
 "password" = "Password";
+"name"= "Name";
+"confirm-password" = "Confirm Password";
+"gender" = "Gender";
+"city" = "City";
+"birth-year" = "Year of birth";
+"phone-number" = "Phone number";
+"mail" = "Mail";
+"code" = "Code";
+"man" = "Man";
+"woman" = "Woman";
+"other" = "Other";

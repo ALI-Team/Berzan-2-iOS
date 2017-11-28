@@ -32,7 +32,7 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
         
         let scheduleSection = RETableViewSection.init(headerTitle: NSLocalizedString("schedule", comment: ""))
         
-        let classSelector = RETextItem.init(title: "", value: UserDefaults.standard.string(forKey: "default-class"), placeholder: NSLocalizedString("class", comment: ""))
+        let classSelector = RETextItem.init(title: NSLocalizedString("class", comment: ""), value: UserDefaults.standard.string(forKey: "default-class"))
         classSelector?.onChange = {_ in
             UserDefaults.standard.set(classSelector?.value, forKey: "default-class")
             UserDefaults.standard.synchronize()
@@ -49,7 +49,7 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
         
         let aboutSection = RETableViewSection.init(headerTitle: NSLocalizedString("about", comment: ""))
         
-        mailItem = RETableViewItem.init(title: NSLocalizedString("mail", comment: ""), accessoryType: .none, selectionHandler: {item in
+        mailItem = RETableViewItem.init(title: NSLocalizedString("mail-dev", comment: ""), accessoryType: .none, selectionHandler: {item in
             
             item?.deselectRow(animated: true)
             

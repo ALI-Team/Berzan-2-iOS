@@ -22,14 +22,14 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
     override func viewDidLoad() {
         setupTabs()
         
-        //Get list of classes
-        classListArray = UserDefaults.standard.array(forKey: "temp-class-list") as? [String] ?? []
-        
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //Get list of classes
+        classListArray = UserDefaults.standard.array(forKey: "temp-class-list") as? [String] ?? []
         
         //Setup week
         self.week = Calendar.current.component(.weekOfYear, from: Date())
@@ -38,12 +38,17 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         UIApplication.shared.statusBarStyle = .lightContent
         
+        UITextField.appearance().tintColor = self.navigationController?.navigationBar.barTintColor
+        UISegmentedControl.appearance().tintColor = self.navigationController?.navigationBar.barTintColor
+        UIToolbar.appearance().tintColor = self.navigationController?.navigationBar.barTintColor
+        
         //iOS 8 & 9
         self.tabBarController?.tabBar.tintColor = UIColor.white
         
         //Get default class
         currentClass = (UserDefaults.standard.string(forKey: "default-class")) ?? ""
         updateCurrentClass()
+        classListArray.insert(currentClass, at: 0)
         
         /*
          *
@@ -183,9 +188,12 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
                 let addAction = UIAlertAction.init(title: NSLocalizedString("add", comment: ""), style: .default, handler: { _ in
             
                     self.classListArray.append(inputAlertController.textFields![0].text!)
-            
+                    self.classListArray.remove(at: 0)
+                    
                     UserDefaults.standard.setValue(self.classListArray, forKey: "temp-class-list")
                     UserDefaults.standard.synchronize()
+                    
+                    self.classListArray.insert(self.currentClass, at: 0)
                     
                     self.showEditClassList()
                 })
@@ -246,6 +254,10 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
         
         cell?.textLabel?.text = classListArray[indexPath.row]
         
+        if indexPath.row == 0 {
+            cell?.textLabel?.textColor = self.navigationController?.navigationBar.barTintColor
+        }
+        
         return cell!
     }
     
@@ -270,9 +282,12 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
             let confirmAction = UIAlertAction.init(title: NSLocalizedString("delete", comment: ""), style: .destructive, handler: {_ in
                 
                 self.classListArray = self.classListArray.filter{$0 != selectedClass}
-
+                self.classListArray.remove(at: 0)
+                
                 UserDefaults.standard.setValue(self.classListArray, forKey: "temp-class-list")
                 UserDefaults.standard.synchronize()
+                
+                self.classListArray.insert(self.currentClass, at: 0)
                 
                 if self.currentClass == selectedClass {
                     if self.classListArray.count != 0 {

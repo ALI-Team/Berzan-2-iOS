@@ -26,7 +26,7 @@
 
 //Settings
 "about" = "Om";
-"mail" = "Maila utvecklaren";
+"mail-dev" = "Maila utvecklaren";
 "credits" = "Tack till";
 "by-aliteam" = "av ALI-Team";
 "class" = "Klass";
@@ -55,3 +55,14 @@
 "register" = "Registrering";
 "username" = "Användarnamn";
 "password" = "Lösenord";
+"name"= "Namn";
+"confirm-password" = "Bekräfta Lösenord";
+"gender" = "Kön";
+"city" = "Stad";
+"birth-year" = "Födelseår";
+"phone-number" = "Telefonnummer";
+"mail" = "Mail";
+"code" = "Kod";
+"man" = "Man";
+"woman" = "Kvinna";
+"other" = "Annat";
