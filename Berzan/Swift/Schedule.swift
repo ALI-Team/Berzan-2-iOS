@@ -66,7 +66,7 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
         let day = Calendar.current.ordinality(of: .weekday, in: .weekOfYear, for: Date())
         
         if day! < 6 {
-            moveToViewController(at: 3, animated: false)
+            moveToViewController(at: day!, animated: false)
         } else if UserDefaults.standard.bool(forKey: "next-week") {
             week += 1
         }

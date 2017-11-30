@@ -14,6 +14,7 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
     
     var manager: RETableViewManager? = nil
     var mailItem: RETableViewItem? = nil
+    var classSelector: RETextItem? = nil
     
     override func viewDidLoad() {
         
@@ -32,11 +33,13 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
         
         let scheduleSection = RETableViewSection.init(headerTitle: NSLocalizedString("schedule", comment: ""))
         
-        let classSelector = RETextItem.init(title: NSLocalizedString("class", comment: ""), value: UserDefaults.standard.string(forKey: "default-class"))
+        classSelector = RETextItem.init(title: NSLocalizedString("class", comment: ""), value: UserDefaults.standard.string(forKey: "default-class"))
         classSelector?.onChange = {_ in
-            UserDefaults.standard.set(classSelector?.value, forKey: "default-class")
+            UserDefaults.standard.set(self.classSelector?.value, forKey: "default-class")
             UserDefaults.standard.synchronize()
         }
+        classSelector?.autocorrectionType = .no
+        classSelector?.autocapitalizationType = .none
         
         let nextWeek = REBoolItem.init(title: NSLocalizedString("next-week", comment: ""), value: UserDefaults.standard.bool(forKey: "next-week"))
         nextWeek?.switchValueChangeHandler = {_ in
@@ -78,6 +81,9 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        classSelector?.value = UserDefaults.standard.string(forKey: "default-class")
+        classSelector?.reloadRow(with: .none)
         
         mailItem?.accessoryType = .none
         mailItem?.reloadRow(with: .none)

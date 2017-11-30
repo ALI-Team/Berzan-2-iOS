@@ -10,6 +10,7 @@ import UIKit
 import XLPagerTabStrip
 import RETableViewManager
 import MBProgressHUD
+import Alamofire
 
 class loginViewController: UITableViewController, IndicatorInfoProvider {
     
@@ -29,6 +30,7 @@ class loginViewController: UITableViewController, IndicatorInfoProvider {
         
         let login = RETableViewItem(title: NSLocalizedString("login", comment: ""), accessoryType: .disclosureIndicator, selectionHandler: {item in
             
+            
             item?.deselectRow(animated: true)
             
             if user?.value == "" || pass?.value == "" {
@@ -36,8 +38,88 @@ class loginViewController: UITableViewController, IndicatorInfoProvider {
                 empty.addAction(UIAlertAction(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
                 self.present(empty, animated: true, completion: nil)
             } else {
+                
                 MBProgressHUD.showAdded(to: self.view, animated: true)
                 
+                self.tableView.resignFirstResponder()
+                self.view.window?.isUserInteractionEnabled = false
+                
+                Alamofire.request("https://berzan.nu/login/mobilelogin.php", method: .post, parameters: ["username":user?.value ?? "", "password":pass?.value ?? ""], encoding: URLEncoding.default).responseJSON(completionHandler: { response in
+                    
+                    if let responseDict = response.result.value as? NSDictionary {
+                        
+                        print(responseDict)
+                        
+                        if (responseDict["status"] as? Int) == 1 {
+                            
+                            let tokens = responseDict["tokens"] as? NSDictionary
+                            
+                            Alamofire.request("https://berzan.nu/login/jsonchecktokens.php", method: .post, parameters: ["tokenid":tokens!["tokenid"] ?? "", "tokenkey":tokens!["tokenkey"] ?? ""], encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler: { result in
+                                
+                                MBProgressHUD.hide(for: self.view, animated: true)
+                                self.view.window?.isUserInteractionEnabled = true
+                                
+                                if let responseDict2 = result.result.value as? NSDictionary {
+                                    
+                                    print(responseDict2)
+                                    
+                                    if (responseDict2["status"] as? Int) == 1 {
+                                        print("logged in")
+                                        
+                                        let userinfo = responseDict2["user"] as? NSDictionary
+                                        
+                                        UserDefaults.standard.set(true, forKey: "logged_in")
+                                        UserDefaults.standard.set(tokens!["tokenid"], forKey: "tokenid")
+                                        UserDefaults.standard.set(tokens!["tokenkey"], forKey: "tokenkey")
+                                        
+                                        if (userinfo!["classid"] as! String) != "" {
+                                            UserDefaults.standard.set(userinfo!["classid"], forKey: "default-class")
+                                        }
+                                        
+                                        UserDefaults.standard.synchronize()
+                                        
+                                    } else {
+                                        
+                                        let error = UIAlertController(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("wrong-login", comment: ""), preferredStyle: .alert)
+                                        error.addAction(UIAlertAction(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
+                                        self.present(error, animated: true, completion: nil)
+                                        
+                                    }
+                                    
+                                } else {
+                                    
+                                    MBProgressHUD.hide(for: self.view, animated: true)
+                                    self.view.window?.isUserInteractionEnabled = true
+                                    
+                                    let error = UIAlertController(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("wrong-login", comment: ""), preferredStyle: .alert)
+                                    error.addAction(UIAlertAction(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
+                                    self.present(error, animated: true, completion: nil)
+                                }
+                            })
+                            
+                        } else {
+                            
+                            MBProgressHUD.hide(for: self.view, animated: true)
+                            self.view.window?.isUserInteractionEnabled = true
+                            
+                            let error = UIAlertController(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("wrong-login", comment: ""), preferredStyle: .alert)
+                            error.addAction(UIAlertAction(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
+                            self.present(error, animated: true, completion: nil)
+                        }
+                        
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        self.view.window?.isUserInteractionEnabled = true
+                    } else {
+                        
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        self.view.window?.isUserInteractionEnabled = true
+                        
+                        let errorController = UIAlertController.init(title: NSLocalizedString("connection-error", comment: ""), message: NSLocalizedString("check-internet", comment: ""), preferredStyle: .alert)
+                        errorController.addAction(UIAlertAction.init(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
+                        
+                        self.present(errorController, animated: true, completion: nil)
+                    }
+                })
             }
         })
         
