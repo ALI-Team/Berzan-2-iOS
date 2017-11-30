@@ -10,6 +10,7 @@ import UIKit
 import XLPagerTabStrip
 import Kingfisher
 import RMPickerViewController
+import Alamofire
 
 class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDataSource, UITableViewDelegate {
     
@@ -49,14 +50,6 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
         currentClass = (UserDefaults.standard.string(forKey: "default-class")) ?? ""
         updateCurrentClass()
         classListArray.insert(currentClass, at: 0)
-        
-        /*
-         *
-         * REMINDER
-         * ========
-         * Scrolling to the day with moveToViewController(at index: Int) does not currently work with XLPagerStrip, waiting for a fix
-         *
-         */
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,6 +66,26 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
         
         setWeek()
         reloadSchedules()
+        
+        //Check for change in class
+        if UserDefaults.standard.bool(forKey: "logged-in") == true {
+            Alamofire.request("https://berzan.nu/login/jsonchecktokens.php", method: .post, parameters: ["tokenid":UserDefaults.standard.string(forKey: "tokenid") ?? "", "tokenkey":UserDefaults.standard.string(forKey: "tokenkey") ?? ""], encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler: { result in
+                if let responseDict2 = result.result.value as? NSDictionary {
+                    if (responseDict2["status"] as? Int) == 1 {
+                        let userinfo = responseDict2["user"] as? NSDictionary
+                        
+                        if (userinfo!["classid"] as! String) != "" {
+                            UserDefaults.standard.set(userinfo!["classid"], forKey: "default-class")
+                            UserDefaults.standard.synchronize()
+                            
+                            self.currentClass = (userinfo!["classid"] as! String)
+                            self.updateCurrentClass()
+                            self.reloadSchedules()
+                        }
+                    }
+                }
+            })
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -186,7 +199,7 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
                 let inputAlertController = UIAlertController.init(title: NSLocalizedString("add-class", comment: ""), message: "", preferredStyle: .alert)
                 
                 let addAction = UIAlertAction.init(title: NSLocalizedString("add", comment: ""), style: .default, handler: { _ in
-            
+                    
                     self.classListArray.append(inputAlertController.textFields![0].text!)
                     self.classListArray.remove(at: 0)
                     
@@ -199,9 +212,9 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
                 })
                 
                 let cancelAction = UIAlertAction.init(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: { _ in
-                   self.showEditClassList()
+                    self.showEditClassList()
                 })
-
+                
                 inputAlertController.addAction(addAction)
                 inputAlertController.addAction(cancelAction)
                 inputAlertController.addTextField(configurationHandler: nil)

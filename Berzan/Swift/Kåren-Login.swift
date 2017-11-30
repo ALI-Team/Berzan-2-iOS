@@ -68,7 +68,7 @@ class loginViewController: UITableViewController, IndicatorInfoProvider {
                                         
                                         let userinfo = responseDict2["user"] as? NSDictionary
                                         
-                                        UserDefaults.standard.set(true, forKey: "logged_in")
+                                        UserDefaults.standard.set(true, forKey: "logged-in")
                                         UserDefaults.standard.set(tokens!["tokenid"], forKey: "tokenid")
                                         UserDefaults.standard.set(tokens!["tokenkey"], forKey: "tokenkey")
                                         

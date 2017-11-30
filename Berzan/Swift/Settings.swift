@@ -9,6 +9,7 @@
 import UIKit
 import RETableViewManager
 import MessageUI
+import Alamofire
 
 class SettingsViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
@@ -34,9 +35,44 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
         let scheduleSection = RETableViewSection.init(headerTitle: NSLocalizedString("schedule", comment: ""))
         
         classSelector = RETextItem.init(title: NSLocalizedString("class", comment: ""), value: UserDefaults.standard.string(forKey: "default-class"))
-        classSelector?.onChange = {_ in
-            UserDefaults.standard.set(self.classSelector?.value, forKey: "default-class")
+        classSelector?.onChange = {item in
+            UserDefaults.standard.set(item?.value, forKey: "default-class")
             UserDefaults.standard.synchronize()
+        }
+        classSelector?.onEndEditing = {item in
+            self.tableView.resignFirstResponder()
+            if UserDefaults.standard.bool(forKey: "logged-in") {
+                let loading = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+                
+                item?.accessoryType = .none
+                item?.accessoryView = loading
+                
+                //Crashes if done instantly
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                    item?.reloadRow(with: .none)
+                })
+                
+                loading.startAnimating()
+                
+                Alamofire.request("https://berzan.nu/login/mobilesetsettings.php", method: .post, parameters: ["tokenid": UserDefaults.standard.string(forKey: "tokenid") ?? "", "tokenkey": UserDefaults.standard.string(forKey: "tokenkey") ?? "", "classid": self.classSelector?.value ?? ""], encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler: {response in
+                    
+                    let status = response.result.value as? NSDictionary
+                    
+                    if (status!["status"] as! Int) == 1 {
+                        
+                        item?.accessoryView = nil
+                        item?.accessoryType = .checkmark
+                        
+                        item?.reloadRow(with: .none)
+                        
+                    } else {
+                        let errorController = UIAlertController.init(title: NSLocalizedString("connection-error", comment: ""), message: NSLocalizedString("check-internet", comment: ""), preferredStyle: .alert)
+                        errorController.addAction(UIAlertAction.init(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
+                        
+                        self.present(errorController, animated: true, completion: nil)
+                    }
+                })
+            }
         }
         classSelector?.autocorrectionType = .no
         classSelector?.autocapitalizationType = .none
@@ -83,6 +119,8 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
     override func viewWillAppear(_ animated: Bool) {
         
         classSelector?.value = UserDefaults.standard.string(forKey: "default-class")
+        classSelector?.accessoryType = .none
+        classSelector?.accessoryView = nil
         classSelector?.reloadRow(with: .none)
         
         mailItem?.accessoryType = .none
