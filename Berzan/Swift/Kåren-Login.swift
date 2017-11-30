@@ -9,6 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 import RETableViewManager
+import MBProgressHUD
 
 class loginViewController: UITableViewController, IndicatorInfoProvider {
     
@@ -26,7 +27,19 @@ class loginViewController: UITableViewController, IndicatorInfoProvider {
         
         pass?.secureTextEntry = true
         
-        let login = RETableViewItem(title: NSLocalizedString("login", comment: ""))
+        let login = RETableViewItem(title: NSLocalizedString("login", comment: ""), accessoryType: .disclosureIndicator, selectionHandler: {item in
+            
+            item?.deselectRow(animated: true)
+            
+            if user?.value == "" || pass?.value == "" {
+                let empty = UIAlertController(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("empty-values", comment: ""), preferredStyle: .alert)
+                empty.addAction(UIAlertAction(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
+                self.present(empty, animated: true, completion: nil)
+            } else {
+                MBProgressHUD.showAdded(to: self.view, animated: true)
+                
+            }
+        })
         
         let inputs = RETableViewSection()
         inputs.addItem(user)
