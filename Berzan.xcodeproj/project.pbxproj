@@ -20,6 +20,7 @@
 		A16B6EE21FCCBC45006F517E /* logo_tab@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A16B6EE01FCCBC44006F517E /* logo_tab@3x.png */; };
 		A16B6EE31FCCBC45006F517E /* logo_tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A16B6EE11FCCBC45006F517E /* logo_tab@2x.png */; };
 		A17056F71FADC7030053AA21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A17056F91FADC7030053AA21 /* Localizable.strings */; };
+		A1AB11991FD34DDE00DB3796 /* Kåren.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB11981FD34DDE00DB3796 /* Kåren.swift */; };
 		A1AB889B1FB0F09700FFAF49 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB889A1FB0F09700FFAF49 /* Settings.swift */; };
 		A1B4305D1FBE2EFC00FE2920 /* SchoolFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B4305C1FBE2EFC00FE2920 /* SchoolFood.swift */; };
 		A1BEE4601FB10AA1008C25E5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1BEE45F1FB10AA1008C25E5 /* MessageUI.framework */; };
@@ -70,6 +71,7 @@
 		A17056F21FADC69A0053AA21 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		A17056F81FADC7030053AA21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A17056FA1FADC7040053AA21 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A1AB11981FD34DDE00DB3796 /* Kåren.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kåren.swift"; sourceTree = "<group>"; };
 		A1AB889A1FB0F09700FFAF49 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A1AB889D1FB0F54B00FFAF49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A1AB889F1FB0F54B00FFAF49 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				A1B4305C1FBE2EFC00FE2920 /* SchoolFood.swift */,
 				A1AB889A1FB0F09700FFAF49 /* Settings.swift */,
 				A1BF582A1FCCB89C00F01433 /* Kåren-Login.swift */,
+				A1AB11981FD34DDE00DB3796 /* Kåren.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				A11EB04B1FAD5713000D5E25 /* Schedule.swift in Sources */,
 				A11EB0141FAD4FBE000D5E25 /* AppDelegate.swift in Sources */,
 				A1BF582B1FCCB89C00F01433 /* Kåren-Login.swift in Sources */,
+				A1AB11991FD34DDE00DB3796 /* Kåren.swift in Sources */,
 				A1B4305D1FBE2EFC00FE2920 /* SchoolFood.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

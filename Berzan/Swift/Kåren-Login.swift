@@ -1,4 +1,4 @@
-//
+ //
 //  Kåren-Login.swift
 //  Berzan
 //
@@ -15,6 +15,8 @@ import Alamofire
 class loginViewController: UITableViewController, IndicatorInfoProvider {
     
     var manager: RETableViewManager? = nil
+    var user: RETextItem? = nil
+    var pass: RETextItem? = nil
     
     override func viewDidLoad() {
         
@@ -23,105 +25,22 @@ class loginViewController: UITableViewController, IndicatorInfoProvider {
         
         manager = RETableViewManager.init(tableView: self.tableView)
         
-        let user = RETextItem(title: "", value: "", placeholder: NSLocalizedString("username", comment: ""))
-        let pass = RETextItem(title: "", value: "", placeholder: NSLocalizedString("password", comment: ""))
+        user = RETextItem(title: "", value: "", placeholder: NSLocalizedString("username", comment: ""))
+        pass = RETextItem(title: "", value: "", placeholder: NSLocalizedString("password", comment: ""))
         
         pass?.secureTextEntry = true
+        pass?.returnKeyType = .go
         
         let login = RETableViewItem(title: NSLocalizedString("login", comment: ""), accessoryType: .disclosureIndicator, selectionHandler: {item in
             
-            
             item?.deselectRow(animated: true)
             
-            if user?.value == "" || pass?.value == "" {
-                let empty = UIAlertController(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("empty-values", comment: ""), preferredStyle: .alert)
-                empty.addAction(UIAlertAction(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
-                self.present(empty, animated: true, completion: nil)
-            } else {
-                
-                MBProgressHUD.showAdded(to: self.view, animated: true)
-                
-                self.tableView.resignFirstResponder()
-                self.view.window?.isUserInteractionEnabled = false
-                
-                Alamofire.request("https://berzan.nu/login/mobilelogin.php", method: .post, parameters: ["username":user?.value ?? "", "password":pass?.value ?? ""], encoding: URLEncoding.default).responseJSON(completionHandler: { response in
-                    
-                    if let responseDict = response.result.value as? NSDictionary {
-                        
-                        print(responseDict)
-                        
-                        if (responseDict["status"] as? Int) == 1 {
-                            
-                            let tokens = responseDict["tokens"] as? NSDictionary
-                            
-                            Alamofire.request("https://berzan.nu/login/jsonchecktokens.php", method: .post, parameters: ["tokenid":tokens!["tokenid"] ?? "", "tokenkey":tokens!["tokenkey"] ?? ""], encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler: { result in
-                                
-                                MBProgressHUD.hide(for: self.view, animated: true)
-                                self.view.window?.isUserInteractionEnabled = true
-                                
-                                if let responseDict2 = result.result.value as? NSDictionary {
-                                    
-                                    print(responseDict2)
-                                    
-                                    if (responseDict2["status"] as? Int) == 1 {
-                                        print("logged in")
-                                        
-                                        let userinfo = responseDict2["user"] as? NSDictionary
-                                        
-                                        UserDefaults.standard.set(true, forKey: "logged-in")
-                                        UserDefaults.standard.set(tokens!["tokenid"], forKey: "tokenid")
-                                        UserDefaults.standard.set(tokens!["tokenkey"], forKey: "tokenkey")
-                                        
-                                        if (userinfo!["classid"] as! String) != "" {
-                                            UserDefaults.standard.set(userinfo!["classid"], forKey: "default-class")
-                                        }
-                                        
-                                        UserDefaults.standard.synchronize()
-                                        
-                                    } else {
-                                        
-                                        let error = UIAlertController(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("wrong-login", comment: ""), preferredStyle: .alert)
-                                        error.addAction(UIAlertAction(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
-                                        self.present(error, animated: true, completion: nil)
-                                        
-                                    }
-                                    
-                                } else {
-                                    
-                                    MBProgressHUD.hide(for: self.view, animated: true)
-                                    self.view.window?.isUserInteractionEnabled = true
-                                    
-                                    let error = UIAlertController(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("wrong-login", comment: ""), preferredStyle: .alert)
-                                    error.addAction(UIAlertAction(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
-                                    self.present(error, animated: true, completion: nil)
-                                }
-                            })
-                            
-                        } else {
-                            
-                            MBProgressHUD.hide(for: self.view, animated: true)
-                            self.view.window?.isUserInteractionEnabled = true
-                            
-                            let error = UIAlertController(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("wrong-login", comment: ""), preferredStyle: .alert)
-                            error.addAction(UIAlertAction(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
-                            self.present(error, animated: true, completion: nil)
-                        }
-                        
-                        MBProgressHUD.hide(for: self.view, animated: true)
-                        self.view.window?.isUserInteractionEnabled = true
-                    } else {
-                        
-                        MBProgressHUD.hide(for: self.view, animated: true)
-                        self.view.window?.isUserInteractionEnabled = true
-                        
-                        let errorController = UIAlertController.init(title: NSLocalizedString("connection-error", comment: ""), message: NSLocalizedString("check-internet", comment: ""), preferredStyle: .alert)
-                        errorController.addAction(UIAlertAction.init(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
-                        
-                        self.present(errorController, animated: true, completion: nil)
-                    }
-                })
-            }
+            self.login()
         })
+        
+        pass?.onReturn = {_ in
+            self.login()
+        }
         
         let inputs = RETableViewSection()
         inputs.addItem(user)
@@ -134,6 +53,100 @@ class loginViewController: UITableViewController, IndicatorInfoProvider {
         manager?.addSection(button)
         
         super.viewDidLoad()
+    }
+    
+    func login() {
+        if user?.value == "" || pass?.value == "" {
+            let empty = UIAlertController(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("empty-values", comment: ""), preferredStyle: .alert)
+            empty.addAction(UIAlertAction(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
+            self.present(empty, animated: true, completion: nil)
+        } else {
+            
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+            
+            self.tableView.resignFirstResponder()
+            self.view.window?.isUserInteractionEnabled = false
+            
+            Alamofire.request("https://berzan.nu/login/mobilelogin.php", method: .post, parameters: ["username":user?.value ?? "", "password":pass?.value ?? ""], encoding: URLEncoding.default).responseJSON(completionHandler: { response in
+                
+                if let responseDict = response.result.value as? NSDictionary {
+                    
+                    print(responseDict)
+                    
+                    if (responseDict["status"] as? Int) == 1 {
+                        
+                        let tokens = responseDict["tokens"] as? NSDictionary
+                        
+                        Alamofire.request("https://berzan.nu/login/jsonchecktokens.php", method: .post, parameters: ["tokenid":tokens!["tokenid"] ?? "", "tokenkey":tokens!["tokenkey"] ?? ""], encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler: { result in
+                            
+                            MBProgressHUD.hide(for: self.view, animated: true)
+                            self.view.window?.isUserInteractionEnabled = true
+                            
+                            if let responseDict2 = result.result.value as? NSDictionary {
+                                
+                                print(responseDict2)
+                                
+                                if (responseDict2["status"] as? Int) == 1 {
+                                    print("logged in")
+                                    
+                                    let userinfo = responseDict2["user"] as? NSDictionary
+                                    
+                                    UserDefaults.standard.set(true, forKey: "logged-in")
+                                    UserDefaults.standard.set(tokens!["tokenid"], forKey: "tokenid")
+                                    UserDefaults.standard.set(tokens!["tokenkey"], forKey: "tokenkey")
+                                    UserDefaults.standard.set(userinfo!["rank"], forKey: "rank")
+                                    
+                                    if (userinfo!["classid"] as! String) != "" {
+                                        UserDefaults.standard.set(userinfo!["classid"], forKey: "default-class")
+                                    }
+                                    
+                                    UserDefaults.standard.synchronize()
+                                    
+                                    self.navigationController?.setViewControllers([(self.navigationController?.storyboard?.instantiateViewController(withIdentifier: "kåren"))!], animated: true)
+
+                                } else {
+                                    
+                                    let error = UIAlertController(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("wrong-login", comment: ""), preferredStyle: .alert)
+                                    error.addAction(UIAlertAction(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
+                                    self.present(error, animated: true, completion: nil)
+                                    
+                                }
+                                
+                            } else {
+                                
+                                MBProgressHUD.hide(for: self.view, animated: true)
+                                self.view.window?.isUserInteractionEnabled = true
+                                
+                                let error = UIAlertController(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("wrong-login", comment: ""), preferredStyle: .alert)
+                                error.addAction(UIAlertAction(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
+                                self.present(error, animated: true, completion: nil)
+                            }
+                        })
+                        
+                    } else {
+                        
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        self.view.window?.isUserInteractionEnabled = true
+                        
+                        let error = UIAlertController(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("wrong-login", comment: ""), preferredStyle: .alert)
+                        error.addAction(UIAlertAction(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
+                        self.present(error, animated: true, completion: nil)
+                    }
+                    
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    self.view.window?.isUserInteractionEnabled = true
+                } else {
+                    
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    self.view.window?.isUserInteractionEnabled = true
+                    
+                    let errorController = UIAlertController.init(title: NSLocalizedString("connection-error", comment: ""), message: NSLocalizedString("check-internet", comment: ""), preferredStyle: .alert)
+                    errorController.addAction(UIAlertAction.init(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
+                    
+                    self.present(errorController, animated: true, completion: nil)
+                }
+            })
+        }
     }
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
@@ -199,6 +212,7 @@ class registerViewController: UITableViewController, IndicatorInfoProvider {
 class loginViewControllerWrapper: ButtonBarPagerTabStripViewController {
     
     override func viewDidLoad() {
+        
         //UI setup
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         UIApplication.shared.statusBarStyle = .lightContent
@@ -206,6 +220,14 @@ class loginViewControllerWrapper: ButtonBarPagerTabStripViewController {
         setupTabs()
         
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        //Check if already logged in
+        if UserDefaults.standard.bool(forKey: "logged-in") {
+            self.navigationController?.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "kåren"))!], animated: false)
+        }
     }
     
     func setupTabs() {

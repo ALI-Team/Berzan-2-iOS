@@ -285,7 +285,7 @@
         <!--Kåren-->
         <scene sceneID="Ocy-Me-tAR">
             <objects>
-                <viewController id="tO4-AJ-yDe" customClass="loginViewControllerWrapper" customModule="Berzan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="kåren-login" id="tO4-AJ-yDe" customClass="loginViewControllerWrapper" customModule="Berzan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mjV-mK-tzD"/>
                         <viewControllerLayoutGuide type="bottom" id="GWR-Mz-veJ"/>
@@ -316,6 +316,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3X7-5V-LSI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1152.8" y="2218.7406296851577"/>
+        </scene>
+        <!--Kåren-->
+        <scene sceneID="Yp7-uj-AN4">
+            <objects>
+                <tableViewController storyboardIdentifier="kåren" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y10-cp-AY8" customClass="Kåren" customModule="Berzan" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="2oK-xw-M3Q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="Y10-cp-AY8" id="fv3-zX-nkD"/>
+                            <outlet property="delegate" destination="Y10-cp-AY8" id="k6L-hd-cHT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Kåren" id="uFM-Qd-6Xg"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BqG-do-m1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1911" y="2219"/>
         </scene>
         <!--School Food-->
         <scene sceneID="WFo-j3-ozL">

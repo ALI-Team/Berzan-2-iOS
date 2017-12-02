@@ -40,21 +40,25 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
             UserDefaults.standard.synchronize()
         }
         classSelector?.onEndEditing = {item in
-            self.tableView.resignFirstResponder()
+            //self.tableView.resignFirstResponder()
             if UserDefaults.standard.bool(forKey: "logged-in") {
                 let loading = UIActivityIndicatorView(activityIndicatorStyle: .gray)
                 
                 item?.accessoryType = .none
                 item?.accessoryView = loading
                 
+                item?.reloadRow(with: .none)
+                
                 //Crashes if done instantly
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                /*DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
                     item?.reloadRow(with: .none)
-                })
+                })*/
                 
                 loading.startAnimating()
                 
                 Alamofire.request("https://berzan.nu/login/mobilesetsettings.php", method: .post, parameters: ["tokenid": UserDefaults.standard.string(forKey: "tokenid") ?? "", "tokenkey": UserDefaults.standard.string(forKey: "tokenkey") ?? "", "classid": self.classSelector?.value ?? ""], encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler: {response in
+                    
+                    print("done")
                     
                     let status = response.result.value as? NSDictionary
                     
@@ -76,6 +80,10 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
         }
         classSelector?.autocorrectionType = .no
         classSelector?.autocapitalizationType = .none
+        
+        classSelector?.onReturn = {item in
+            
+        }
         
         let nextWeek = REBoolItem.init(title: NSLocalizedString("next-week", comment: ""), value: UserDefaults.standard.bool(forKey: "next-week"))
         nextWeek?.switchValueChangeHandler = {_ in

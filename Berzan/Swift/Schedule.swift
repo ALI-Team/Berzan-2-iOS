@@ -71,6 +71,9 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
         if UserDefaults.standard.bool(forKey: "logged-in") == true {
             Alamofire.request("https://berzan.nu/login/jsonchecktokens.php", method: .post, parameters: ["tokenid":UserDefaults.standard.string(forKey: "tokenid") ?? "", "tokenkey":UserDefaults.standard.string(forKey: "tokenkey") ?? ""], encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler: { result in
                 if let responseDict2 = result.result.value as? NSDictionary {
+                    
+                    print(responseDict2)
+                    
                     if (responseDict2["status"] as? Int) == 1 {
                         let userinfo = responseDict2["user"] as? NSDictionary
                         
