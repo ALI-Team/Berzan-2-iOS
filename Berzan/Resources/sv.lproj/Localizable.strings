@@ -66,3 +66,9 @@
 "man" = "Man";
 "woman" = "Kvinna";
 "other" = "Annat";
+"empty-values" = "Ett eller flera värden är ej ifyllda";
+"wrong-login" = "Användarnamn och / eller lösenord är fel";
+"events" = "Evenemang";
+"card" = "Medlemskort";
+"scan" = "Kortskanning";
+"logout" = "Logga ut";

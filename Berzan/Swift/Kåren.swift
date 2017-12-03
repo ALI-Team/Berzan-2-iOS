@@ -9,7 +9,7 @@
 import UIKit
 import RETableViewManager
 
-class Kåren: UITableViewController {
+class Kåren: UITableViewController, RETableViewManagerDelegate {
     
     var manager: RETableViewManager? = nil
     
@@ -23,6 +23,7 @@ class Kåren: UITableViewController {
         
         //Tableview setup
         manager = RETableViewManager.init(tableView: self.tableView)
+        manager?.delegate = self
         let main = RETableViewSection.init()
         
         let events = RETableViewItem(title: NSLocalizedString("events", comment: ""), accessoryType: .disclosureIndicator, selectionHandler: {item in
@@ -67,7 +68,7 @@ class Kåren: UITableViewController {
         manager?.addSection(logoutSection)
     }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView!, willLoad cell: UITableViewCell!, forRowAt indexPath: IndexPath!) {
         if UserDefaults.standard.integer(forKey: "rank") > 0 {
             if indexPath.section == 2 {
                 cell.textLabel?.textColor = UIColor.red

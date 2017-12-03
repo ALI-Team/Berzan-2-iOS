@@ -66,3 +66,10 @@
 "man" = "Man";
 "woman" = "Woman";
 "other" = "Other";
+"empty-values" = "One or more fields are empty";
+"wrong-login" = "Username or password is incorrect";
+"events" = "Events";
+"card" = "Card";
+"scan" = "Card scan";
+"logout" = "Log out";
+
