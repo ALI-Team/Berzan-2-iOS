@@ -1,75 +1,154 @@
-/*
-  Localizable.strings
-  Berzan
 
-  Created by Luka Janković on 2017-11-04.
-  Copyright © 2017 ALI Team. All rights reserved.
-*/
-
-//Schedule
-"schedule-lan" = "en-gb";
-"week-prefix" = "W.";
-"add-class" = "Add Class";
-"delete-class" = "Delete Class %@";
-
-//Days
-"monday-short" = "Mon";
-"tuesday-short" = "Tue";
-"wednesday-short" = "Wed";
-"thursday-short" = "Thu";
-"friday-short" = "Fri";
-"monday" = "Monday";
-"tuesday" = "Tuesday";
-"wednesday" = "Wednesday";
-"thursday" = "Thursday";
-"friday" = "Friday";
-
-//Settings
+/* No comment provided by engineer. */
 "about" = "About";
-"mail-dev" = "Email the developer";
-"credits" = "Credits";
-"by-aliteam" = "by ALI-Team";
-"class" = "Class";
-"next-week" = "Next week during weekends";
 
-//Generic
-"select" = "Select";
-"cancel" = "Cancel";
-"this-week" = "This Week";
-"select-class-title" = "Select class";
-"edit" = "Edit";
-"edit-class-list-title" = "Edit class list";
-"edit-class-list-message" = "Click on a class to delete it.";
-"back" = "Back";
+/* No comment provided by engineer. */
 "add" = "Add";
+
+/* No comment provided by engineer. */
+"add-class" = "Add Class";
+
+/* No comment provided by engineer. */
+"back" = "Back";
+
+"birth-year" = "Year of birth";
+
+/* No comment provided by engineer. */
+"by-aliteam" = "by ALI-Team";
+
+/* No comment provided by engineer. */
+"cancel" = "Cancel";
+
+"card" = "Card";
+
+/* No comment provided by engineer. */
+"check-internet" = "Check your internet connection";
+
+"city" = "City";
+
+/* No comment provided by engineer. */
+"class" = "Class";
+
+"code" = "Code";
+
+"confirm-password" = "Confirm Password";
+
+/* No comment provided by engineer. */
+"connection-error" = "Connection Error";
+
+/* No comment provided by engineer. */
+"credits" = "Credits";
+
+/* No comment provided by engineer. */
 "delete" = "Delete";
 
-//Error
-"connection-error" = "Connection Error";
-"check-internet" = "Check your internet connection";
+/* No comment provided by engineer. */
+"delete-class" = "Delete Class %@";
+
+/* No comment provided by engineer. */
+"edit" = "Edit";
+
+/* No comment provided by engineer. */
+"edit-class-list-message" = "Click on a class to delete it.";
+
+/* No comment provided by engineer. */
+"edit-class-list-title" = "Edit class list";
+
+"empty-values" = "One or more fields are empty";
+
+/* No comment provided by engineer. */
 "error" = "Error";
+
+"events" = "Events";
+
+/* No comment provided by engineer. */
 "food-fail" = "Unable to load school food";
 
-//Kåren
-"login" = "Log in";
-"register" = "Register";
-"username" = "Username";
-"password" = "Password";
-"name"= "Name";
-"confirm-password" = "Confirm Password";
+"friday" = "Friday";
+
+/* No comment provided by engineer. */
+"friday-short" = "Fri";
+
 "gender" = "Gender";
-"city" = "City";
-"birth-year" = "Year of birth";
-"phone-number" = "Phone number";
-"mail" = "Mail";
-"code" = "Code";
-"man" = "Man";
-"woman" = "Woman";
-"other" = "Other";
-"empty-values" = "One or more fields are empty";
-"wrong-login" = "Username or password is incorrect";
-"events" = "Events";
-"card" = "Card";
-"scan" = "Card scan";
+
+"login" = "Log in";
+
 "logout" = "Log out";
 
+"mail" = "Mail";
+
+/* No comment provided by engineer. */
+"mail-dev" = "Email the developer";
+
+"man" = "Man";
+
+"monday" = "Monday";
+
+/* No comment provided by engineer. */
+"monday-short" = "Mon";
+
+"name" = "Name";
+
+/* No comment provided by engineer. */
+"next-week" = "Next week during weekends";
+
+"other" = "Other";
+
+"password" = "Password";
+
+"phone-number" = "Phone number";
+
+"register" = "Register";
+
+"scan" = "Card scan";
+
+/* No comment provided by engineer. */
+"schedule-lan" = "en-gb";
+
+/* No comment provided by engineer. */
+"select" = "Select";
+
+/* No comment provided by engineer. */
+"select-class-title" = "Select class";
+
+/* No comment provided by engineer. */
+"this-week" = "This Week";
+
+"thursday" = "Thursday";
+
+/* No comment provided by engineer. */
+"thursday-short" = "Thu";
+
+"tuesday" = "Tuesday";
+
+/* No comment provided by engineer. */
+"tuesday-short" = "Tue";
+
+"username" = "Username";
+
+"wednesday" = "Wednesday";
+
+/* No comment provided by engineer. */
+"wednesday-short" = "Wed";
+
+/* No comment provided by engineer. */
+"week-prefix" = "W.";
+
+"woman" = "Woman";
+
+"wrong-login" = "Username or password is incorrect";
+
+/* %i selected */
+"%i selected" = "";
+
+/* Delete */
+"Delete" = "";
+
+/* No comment provided by engineer. */
+"Next" = "";
+
+/* No comment provided by engineer. */
+"Previous" = "";
+
+/* No comment provided by engineer. */
+"schedule" = "";

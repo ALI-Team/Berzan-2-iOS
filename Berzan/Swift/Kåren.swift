@@ -8,6 +8,7 @@
 
 import UIKit
 import RETableViewManager
+import Kingfisher
 
 class Kåren: UITableViewController, RETableViewManagerDelegate {
     
@@ -31,7 +32,7 @@ class Kåren: UITableViewController, RETableViewManagerDelegate {
         })
         
         let card = RETableViewItem(title: NSLocalizedString("card", comment: ""), accessoryType: .disclosureIndicator, selectionHandler: {item in
-            
+            self.navigationController?.pushViewController((self.storyboard?.instantiateViewController(withIdentifier: "card"))!, animated: true)
         })
         
         main.addItem(events)
@@ -78,5 +79,20 @@ class Kåren: UITableViewController, RETableViewManagerDelegate {
                 cell.textLabel?.textColor = UIColor.red
             }
         }
+    }
+}
+
+class CardViewController: UIViewController {
+    
+    @IBOutlet weak var cardView: UIImageView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        title = NSLocalizedString("card", comment: "")
+        
+        cardView?.kf.indicatorType = .activity
+        cardView?.kf.setImage(with: URL(string: "https://berzan.nu/login/card/card.php?tokenid=\(UserDefaults.standard.string(forKey: "tokenid") ?? "")&tokenkey=\(UserDefaults.standard.string(forKey: "tokenkey") ?? "")"))
+        
+        super.viewWillAppear(animated)
     }
 }

@@ -14,8 +14,29 @@
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "Fe3-eD-4Qr"; */
 "Fe3-eD-4Qr.title" = "Inställningar";
 
-/* Class = "UINavigationItem"; title = "Skolmat"; ObjectID = "6T0-OY-rID"; */
+/* Class = "UINavigationItem"; title = "School food"; ObjectID = "6T0-OY-rID"; */
 "6T0-OY-rID.title" = "Skolmat";
 
 /* Class = "UITabBarItem"; title = "School Food"; ObjectID = "Esa-0u-C1y"; */
 "Esa-0u-C1y.title" = "Skolmat";
+
+/* Class = "UIViewController"; title = "Medlemskort"; ObjectID = "OHs-1D-zWC"; */
+"OHs-1D-zWC.title" = "";
+
+/* Class = "UILabel"; text = " "; ObjectID = "TNR-lr-OoG"; */
+"TNR-lr-OoG.text" = "";
+
+/* Class = "UILabel"; text = " "; ObjectID = "bTb-ml-Kig"; */
+"bTb-ml-Kig.text" = "";
+
+/* Class = "UILabel"; text = " "; ObjectID = "fkL-Gc-I8K"; */
+"fkL-Gc-I8K.text" = "";
+
+/* Class = "UINavigationItem"; title = "Kåren"; ObjectID = "rtS-HC-j0g"; */
+"rtS-HC-j0g.title" = "Kåren";
+
+/* Class = "UITabBarItem"; title = "Kåren"; ObjectID = "tlP-2i-pbt"; */
+"tlP-2i-pbt.title" = "Kåren";
+
+/* Class = "UINavigationItem"; title = "Kåren"; ObjectID = "uFM-Qd-6Xg"; */
+"uFM-Qd-6Xg.title" = "Kåren";

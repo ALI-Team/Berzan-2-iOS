@@ -1,74 +1,154 @@
-/* 
-  Localizable.strings
-  Berzan
 
-  Created by Luka Janković on 2017-11-04.
-  Copyright © 2017 ALI Team. All rights reserved.
-*/
-
-//Schedule
-"schedule-lan" = "sv-se";
-"week-prefix" = "V.";
-"add-class" = "Lägg till klass";
-"delete-class" = "Ta bort klass %@";
-
-//Days
-"monday-short" = "Mån";
-"tuesday-short" = "Tis";
-"wednesday-short" = "Ons";
-"thursday-short" = "Tor";
-"friday-short" = "Fre";
-"monday" = "Måndag";
-"tuesday" = "Tisdag";
-"wednesday" = "Onsdag";
-"thursday" = "Torsdag";
-"friday" = "Fredag";
-
-//Settings
+/* No comment provided by engineer. */
 "about" = "Om";
-"mail-dev" = "Maila utvecklaren";
-"credits" = "Tack till";
-"by-aliteam" = "av ALI-Team";
-"class" = "Klass";
-"next-week" = "Nästa vecka under helg";
 
-//Generic
-"select" = "Välj";
-"cancel" = "Avbryt";
-"this-week" = "Denna Vecka";
-"select-class-title" = "Välj Klass";
-"edit" = "Redigera";
-"edit-class-list-title" = "Ändra klasser";
-"edit-class-list-message" = "Tryck på en klass för att ta bort den.";
-"back" = "Tillbaks";
+/* No comment provided by engineer. */
 "add" = "Lägg till";
+
+/* No comment provided by engineer. */
+"add-class" = "Lägg till klass";
+
+/* No comment provided by engineer. */
+"back" = "Tillbaks";
+
+"birth-year" = "Födelseår";
+
+/* No comment provided by engineer. */
+"by-aliteam" = "av ALI-Team";
+
+/* No comment provided by engineer. */
+"cancel" = "Avbryt";
+
+"card" = "Medlemskort";
+
+/* No comment provided by engineer. */
+"check-internet" = "Kontrollera internetuppkoppling";
+
+"city" = "Stad";
+
+/* No comment provided by engineer. */
+"class" = "Klass";
+
+"code" = "Kod";
+
+"confirm-password" = "Bekräfta Lösenord";
+
+/* No comment provided by engineer. */
+"connection-error" = "Uppkopplingsfel";
+
+/* No comment provided by engineer. */
+"credits" = "Tack till";
+
+/* No comment provided by engineer. */
 "delete" = "Ta bort";
 
-//Error
-"connection-error" = "Uppkopplingsfel";
-"check-internet" = "Kontrollera internetuppkoppling";
+/* No comment provided by engineer. */
+"delete-class" = "Ta bort klass %@";
+
+/* No comment provided by engineer. */
+"edit" = "Redigera";
+
+/* No comment provided by engineer. */
+"edit-class-list-message" = "Tryck på en klass för att ta bort den.";
+
+/* No comment provided by engineer. */
+"edit-class-list-title" = "Ändra klasser";
+
+"empty-values" = "Ett eller flera värden är ej ifyllda";
+
+/* No comment provided by engineer. */
 "error" = "Fel";
+
+"events" = "Evenemang";
+
+/* No comment provided by engineer. */
 "food-fail" = "Kunde inte ladda skolmaten";
 
-//Kåren
-"login" = "Logga in";
-"register" = "Registrering";
-"username" = "Användarnamn";
-"password" = "Lösenord";
-"name"= "Namn";
-"confirm-password" = "Bekräfta Lösenord";
+"friday" = "Fredag";
+
+/* No comment provided by engineer. */
+"friday-short" = "Fre";
+
 "gender" = "Kön";
-"city" = "Stad";
-"birth-year" = "Födelseår";
-"phone-number" = "Telefonnummer";
-"mail" = "Mail";
-"code" = "Kod";
-"man" = "Man";
-"woman" = "Kvinna";
-"other" = "Annat";
-"empty-values" = "Ett eller flera värden är ej ifyllda";
-"wrong-login" = "Användarnamn och / eller lösenord är fel";
-"events" = "Evenemang";
-"card" = "Medlemskort";
-"scan" = "Kortskanning";
+
+"login" = "Logga in";
+
 "logout" = "Logga ut";
+
+"mail" = "Mail";
+
+/* No comment provided by engineer. */
+"mail-dev" = "Maila utvecklaren";
+
+"man" = "Man";
+
+"monday" = "Måndag";
+
+/* No comment provided by engineer. */
+"monday-short" = "Mån";
+
+"name" = "Namn";
+
+/* No comment provided by engineer. */
+"next-week" = "Nästa vecka under helg";
+
+"other" = "Annat";
+
+"password" = "Lösenord";
+
+"phone-number" = "Telefonnummer";
+
+"register" = "Registrering";
+
+"scan" = "Kortskanning";
+
+/* No comment provided by engineer. */
+"schedule-lan" = "sv-se";
+
+/* No comment provided by engineer. */
+"select" = "Välj";
+
+/* No comment provided by engineer. */
+"select-class-title" = "Välj Klass";
+
+/* No comment provided by engineer. */
+"this-week" = "Denna Vecka";
+
+"thursday" = "Torsdag";
+
+/* No comment provided by engineer. */
+"thursday-short" = "Tor";
+
+"tuesday" = "Tisdag";
+
+/* No comment provided by engineer. */
+"tuesday-short" = "Tis";
+
+"username" = "Användarnamn";
+
+"wednesday" = "Onsdag";
+
+/* No comment provided by engineer. */
+"wednesday-short" = "Ons";
+
+/* No comment provided by engineer. */
+"week-prefix" = "V.";
+
+"woman" = "Kvinna";
+
+"wrong-login" = "Användarnamn och / eller lösenord är fel";
+
+/* %i selected */
+"%i selected" = "";
+
+/* Delete */
+"Delete" = "";
+
+/* No comment provided by engineer. */
+"Next" = "";
+
+/* No comment provided by engineer. */
+"Previous" = "";
+
+/* No comment provided by engineer. */
+"schedule" = "";
