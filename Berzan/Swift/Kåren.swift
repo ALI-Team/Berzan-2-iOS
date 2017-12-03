@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import AVFoundation
 import RETableViewManager
 import Kingfisher
+import QRCodeReader
+import Alamofire
 
-class Kåren: UITableViewController, RETableViewManagerDelegate {
+class Kåren: UITableViewController, RETableViewManagerDelegate, QRCodeReaderViewControllerDelegate {
     
     var manager: RETableViewManager? = nil
+    
+    lazy var readerVC: QRCodeReaderViewController = {
+        let builder = QRCodeReaderViewControllerBuilder {
+            $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
+        }
+        
+        return QRCodeReaderViewController(builder: builder)
+    }()
     
     override func viewDidLoad() {
         
@@ -45,7 +56,28 @@ class Kåren: UITableViewController, RETableViewManagerDelegate {
             let styrelsen = RETableViewSection(headerTitle: NSLocalizedString("styrelsen", comment: ""))
             
             let scan = RETableViewItem(title: NSLocalizedString("scan", comment: ""), accessoryType: .disclosureIndicator, selectionHandler: {item in
+                self.readerVC.delegate = self
                 
+                // Or by using the closure pattern
+                self.readerVC.completionBlock = { (result: QRCodeReaderResult?) in
+                    
+                    let url = "https://berzan.nu/login/card/verifycard.php?token=\(result?.value ?? "")"
+                    
+                    Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler: {response in
+                        
+                        let responseDict = response.result.value as! NSDictionary
+                        
+                        if let userInfo = responseDict["user"] as? NSDictionary {
+                            let resultVC = UIAlertController(title: NSLocalizedString("verified", comment: ""), message: "\(NSLocalizedString("name", comment: "")): \(userInfo["firstname"]!) \(userInfo["lastname"]!)\n\(NSLocalizedString("class", comment: "")): \(userInfo["classid"]!)\n\(NSLocalizedString("code", comment: "")): \(responseDict["safecode"]!)", preferredStyle: .alert)
+                            resultVC.addAction(UIAlertAction(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: nil))
+                            self.present(resultVC, animated: true, completion: nil)
+                        }
+                    })
+                }
+                
+                // Presents the readerVC as modal form sheet
+                self.readerVC.modalPresentationStyle = .formSheet
+                self.present(self.readerVC, animated: true, completion: nil)
             })
             
             styrelsen?.addItem(scan)
@@ -67,6 +99,22 @@ class Kåren: UITableViewController, RETableViewManagerDelegate {
         logoutSection.addItem(logout)
         
         manager?.addSection(logoutSection)
+    }
+    
+    func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+        reader.stopScanning()
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func reader(_ reader: QRCodeReaderViewController, didSwitchCamera newCaptureDevice: AVCaptureDeviceInput) {
+        
+    }
+    
+    func readerDidCancel(_ reader: QRCodeReaderViewController) {
+        reader.stopScanning()
+        
+        dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView!, willLoad cell: UITableViewCell!, forRowAt indexPath: IndexPath!) {

@@ -12,6 +12,7 @@ target 'Berzan' do
   pod 'RETableViewManager', '~> 1.6'
   pod 'Alamofire', '~> 4.5'
   pod 'MBProgressHUD', '~> 1.1.0'
+  pod 'QRCodeReader.swift', '~> 8.0.3'
   
   target 'BerzanTests' do
     inherit! :search_paths

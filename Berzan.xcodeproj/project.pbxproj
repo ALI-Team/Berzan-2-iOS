@@ -20,6 +20,7 @@
 		A16B6EE21FCCBC45006F517E /* logo_tab@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A16B6EE01FCCBC44006F517E /* logo_tab@3x.png */; };
 		A16B6EE31FCCBC45006F517E /* logo_tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A16B6EE11FCCBC45006F517E /* logo_tab@2x.png */; };
 		A17056F71FADC7030053AA21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A17056F91FADC7030053AA21 /* Localizable.strings */; };
+		A17BE6EA1FD430D4005F4688 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17BE6E91FD430D3005F4688 /* AVFoundation.framework */; };
 		A1AB11991FD34DDE00DB3796 /* Kåren.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB11981FD34DDE00DB3796 /* Kåren.swift */; };
 		A1AB889B1FB0F09700FFAF49 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB889A1FB0F09700FFAF49 /* Settings.swift */; };
 		A1B4305D1FBE2EFC00FE2920 /* SchoolFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B4305C1FBE2EFC00FE2920 /* SchoolFood.swift */; };
@@ -71,6 +72,7 @@
 		A17056F21FADC69A0053AA21 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		A17056F81FADC7030053AA21 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A17056FA1FADC7040053AA21 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A17BE6E91FD430D3005F4688 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A1AB11981FD34DDE00DB3796 /* Kåren.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kåren.swift"; sourceTree = "<group>"; };
 		A1AB889A1FB0F09700FFAF49 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A1AB889D1FB0F54B00FFAF49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A17BE6EA1FD430D4005F4688 /* AVFoundation.framework in Frameworks */,
 				A1BEE4601FB10AA1008C25E5 /* MessageUI.framework in Frameworks */,
 				B1BBB5F286C2FFFF5BDFA34B /* Pods_Berzan.framework in Frameworks */,
 			);
@@ -216,6 +219,7 @@
 		BD9E00D8F79F5F7087EC9EBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A17BE6E91FD430D3005F4688 /* AVFoundation.framework */,
 				A1BEE45F1FB10AA1008C25E5 /* MessageUI.framework */,
 				A1B754E21FADEA2D00626285 /* Kingfisher.framework */,
 				A1B754E01FADEA2100626285 /* XLPagerTabStrip.framework */,
