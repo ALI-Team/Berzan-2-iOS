@@ -17,6 +17,10 @@
 		A11EB0341FAD4FBE000D5E25 /* BerzanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EB0331FAD4FBE000D5E25 /* BerzanUITests.swift */; };
 		A11EB0451FAD5391000D5E25 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A11EB0441FAD5391000D5E25 /* logo.png */; };
 		A11EB04B1FAD5713000D5E25 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EB04A1FAD5713000D5E25 /* Schedule.swift */; };
+		A13AC9F71FD9C0390096E88A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13AC9F61FD9C0390096E88A /* NotificationCenter.framework */; };
+		A13AC9FB1FD9C0390096E88A /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A13AC9FA1FD9C0390096E88A /* TodayViewController.m */; };
+		A13AC9FE1FD9C0390096E88A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A13AC9FC1FD9C0390096E88A /* MainInterface.storyboard */; };
+		A13ACA021FD9C0390096E88A /* Skolmat.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A13AC9F51FD9C0390096E88A /* Skolmat.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A16B6EE21FCCBC45006F517E /* logo_tab@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A16B6EE01FCCBC44006F517E /* logo_tab@3x.png */; };
 		A16B6EE31FCCBC45006F517E /* logo_tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A16B6EE11FCCBC45006F517E /* logo_tab@2x.png */; };
 		A17056F71FADC7030053AA21 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A17056F91FADC7030053AA21 /* Localizable.strings */; };
@@ -43,7 +47,28 @@
 			remoteGlobalIDString = A11EB00F1FAD4FBE000D5E25;
 			remoteInfo = Berzan;
 		};
+		A13ACA001FD9C0390096E88A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A11EB0081FAD4FBE000D5E25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A13AC9F41FD9C0390096E88A;
+			remoteInfo = Skolmat;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A13ACA061FD9C0390096E88A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A13ACA021FD9C0390096E88A /* Skolmat.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3E3F6D18A01B64D347BD70AF /* Pods-BerzanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BerzanUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BerzanUITests/Pods-BerzanUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +91,14 @@
 		A11EB0351FAD4FBE000D5E25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A11EB0441FAD5391000D5E25 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		A11EB04A1FAD5713000D5E25 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		A13AC9F51FD9C0390096E88A /* Skolmat.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Skolmat.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A13AC9F61FD9C0390096E88A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		A13AC9F91FD9C0390096E88A /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		A13AC9FA1FD9C0390096E88A /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		A13AC9FD1FD9C0390096E88A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		A13AC9FF1FD9C0390096E88A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A13ACA071FD9C0CB0096E88A /* Berzan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Berzan.entitlements; sourceTree = "<group>"; };
+		A13ACA081FD9C0D50096E88A /* Skolmat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Skolmat.entitlements; sourceTree = "<group>"; };
 		A16B6EE01FCCBC44006F517E /* logo_tab@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_tab@3x.png"; sourceTree = "<group>"; };
 		A16B6EE11FCCBC45006F517E /* logo_tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_tab@2x.png"; sourceTree = "<group>"; };
 		A17056F21FADC69A0053AA21 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
@@ -113,6 +146,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A13AC9F21FD9C0390096E88A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A13AC9F71FD9C0390096E88A /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -122,6 +163,7 @@
 				A11EB0121FAD4FBE000D5E25 /* Berzan */,
 				A11EB0271FAD4FBE000D5E25 /* BerzanTests */,
 				A11EB0321FAD4FBE000D5E25 /* BerzanUITests */,
+				A13AC9F81FD9C0390096E88A /* Skolmat */,
 				A11EB0111FAD4FBE000D5E25 /* Products */,
 				BB472767A29719DE4C28489B /* Pods */,
 				BD9E00D8F79F5F7087EC9EBA /* Frameworks */,
@@ -134,6 +176,7 @@
 				A11EB0101FAD4FBE000D5E25 /* Berzan.app */,
 				A11EB0241FAD4FBE000D5E25 /* BerzanTests.xctest */,
 				A11EB02F1FAD4FBE000D5E25 /* BerzanUITests.xctest */,
+				A13AC9F51FD9C0390096E88A /* Skolmat.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,6 +184,7 @@
 		A11EB0121FAD4FBE000D5E25 /* Berzan */ = {
 			isa = PBXGroup;
 			children = (
+				A13ACA071FD9C0CB0096E88A /* Berzan.entitlements */,
 				A11EB0431FAD5387000D5E25 /* Resources */,
 				A11EB0421FAD537D000D5E25 /* User Interface */,
 				A11EB0411FAD5373000D5E25 /* Swift */,
@@ -200,6 +244,18 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		A13AC9F81FD9C0390096E88A /* Skolmat */ = {
+			isa = PBXGroup;
+			children = (
+				A13ACA081FD9C0D50096E88A /* Skolmat.entitlements */,
+				A13AC9F91FD9C0390096E88A /* TodayViewController.h */,
+				A13AC9FA1FD9C0390096E88A /* TodayViewController.m */,
+				A13AC9FC1FD9C0390096E88A /* MainInterface.storyboard */,
+				A13AC9FF1FD9C0390096E88A /* Info.plist */,
+			);
+			path = Skolmat;
+			sourceTree = "<group>";
+		};
 		BB472767A29719DE4C28489B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +279,7 @@
 				AE4AFD6B7229E331C7BE13AD /* Pods_Berzan.framework */,
 				56AC21302C95C4C4B9FA9A87 /* Pods_BerzanTests.framework */,
 				8891CFD44A99CC6B748C91C2 /* Pods_BerzanUITests.framework */,
+				A13AC9F61FD9C0390096E88A /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -242,10 +299,12 @@
 				5839ECB58585F82F26B118A9 /* [CP] Copy Pods Resources */,
 				A11EB0461FAD5440000D5E25 /* ShellScript */,
 				A17BE6E81FD42782005F4688 /* ShellScript */,
+				A13ACA061FD9C0390096E88A /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A13ACA011FD9C0390096E88A /* PBXTargetDependency */,
 			);
 			name = Berzan;
 			productName = Berzan;
@@ -294,6 +353,23 @@
 			productReference = A11EB02F1FAD4FBE000D5E25 /* BerzanUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		A13AC9F41FD9C0390096E88A /* Skolmat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A13ACA051FD9C0390096E88A /* Build configuration list for PBXNativeTarget "Skolmat" */;
+			buildPhases = (
+				A13AC9F11FD9C0390096E88A /* Sources */,
+				A13AC9F21FD9C0390096E88A /* Frameworks */,
+				A13AC9F31FD9C0390096E88A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Skolmat;
+			productName = Skolmat;
+			productReference = A13AC9F51FD9C0390096E88A /* Skolmat.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -307,6 +383,11 @@
 					A11EB00F1FAD4FBE000D5E25 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					A11EB0231FAD4FBE000D5E25 = {
 						CreatedOnToolsVersion = 9.1;
@@ -317,6 +398,15 @@
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A11EB00F1FAD4FBE000D5E25;
+					};
+					A13AC9F41FD9C0390096E88A = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -337,6 +427,7 @@
 				A11EB00F1FAD4FBE000D5E25 /* Berzan */,
 				A11EB0231FAD4FBE000D5E25 /* BerzanTests */,
 				A11EB02E1FAD4FBE000D5E25 /* BerzanUITests */,
+				A13AC9F41FD9C0390096E88A /* Skolmat */,
 			);
 		};
 /* End PBXProject section */
@@ -367,6 +458,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A13AC9F31FD9C0390096E88A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A13AC9FE1FD9C0390096E88A /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +664,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A13AC9F11FD9C0390096E88A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A13AC9FB1FD9C0390096E88A /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -577,6 +684,11 @@
 			isa = PBXTargetDependency;
 			target = A11EB00F1FAD4FBE000D5E25 /* Berzan */;
 			targetProxy = A11EB0301FAD4FBE000D5E25 /* PBXContainerItemProxy */;
+		};
+		A13ACA011FD9C0390096E88A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A13AC9F41FD9C0390096E88A /* Skolmat */;
+			targetProxy = A13ACA001FD9C0390096E88A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -599,6 +711,14 @@
 				A1AB889F1FB0F54B00FFAF49 /* sv */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A13AC9FC1FD9C0390096E88A /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A13AC9FD1FD9C0390096E88A /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		A17056F91FADC7030053AA21 /* Localizable.strings */ = {
@@ -727,6 +847,7 @@
 			baseConfigurationReference = B0911FE6EA6FA7AE5A0DA03C /* Pods-Berzan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Berzan/Berzan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 467PJN3NN9;
 				INFOPLIST_FILE = Berzan/Info.plist;
@@ -744,6 +865,7 @@
 			baseConfigurationReference = C314A42D3848C583337FE514 /* Pods-Berzan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Berzan/Berzan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 467PJN3NN9;
 				INFOPLIST_FILE = Berzan/Info.plist;
@@ -826,6 +948,36 @@
 			};
 			name = Release;
 		};
+		A13ACA031FD9C0390096E88A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Skolmat/Skolmat.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 467PJN3NN9;
+				INFOPLIST_FILE = Skolmat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = am.alite.berzan.Skolmat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A13ACA041FD9C0390096E88A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Skolmat/Skolmat.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 467PJN3NN9;
+				INFOPLIST_FILE = Skolmat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = am.alite.berzan.Skolmat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -861,6 +1013,15 @@
 			buildConfigurations = (
 				A11EB03F1FAD4FBE000D5E25 /* Debug */,
 				A11EB0401FAD4FBE000D5E25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A13ACA051FD9C0390096E88A /* Build configuration list for PBXNativeTarget "Skolmat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A13ACA031FD9C0390096E88A /* Debug */,
+				A13ACA041FD9C0390096E88A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

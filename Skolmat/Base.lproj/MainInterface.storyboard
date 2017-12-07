@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Osj-8M-itI">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="vWJ-Ep-acA">
+            <objects>
+                <viewController id="Osj-8M-itI" customClass="TodayViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S9D-yP-wBU"/>
+                        <viewControllerLayoutGuide type="bottom" id="qYo-uA-ThR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="zXN-zN-Hyw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="36" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vqq-fW-KQC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Osj-8M-itI" id="KaC-LM-DZB"/>
+                                    <outlet property="delegate" destination="Osj-8M-itI" id="4ZF-Yn-jHK"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Vqq-fW-KQC" firstAttribute="leading" secondItem="zXN-zN-Hyw" secondAttribute="leading" id="1I2-k8-u4h"/>
+                            <constraint firstAttribute="trailing" secondItem="Vqq-fW-KQC" secondAttribute="trailing" id="hIB-gX-qAd"/>
+                            <constraint firstItem="qYo-uA-ThR" firstAttribute="top" secondItem="Vqq-fW-KQC" secondAttribute="bottom" id="qSF-MD-b7i"/>
+                            <constraint firstItem="Vqq-fW-KQC" firstAttribute="top" secondItem="S9D-yP-wBU" secondAttribute="bottom" id="w3U-ek-Wu3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1ic-hE-5Fh"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="110"/>
+                    <connections>
+                        <outlet property="food_controller" destination="Vqq-fW-KQC" id="jdt-62-eFL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nS2-Ia-kSj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-306" y="26"/>
+        </scene>
+    </scenes>
+</document>
