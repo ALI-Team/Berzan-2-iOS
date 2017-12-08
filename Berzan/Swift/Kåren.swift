@@ -351,7 +351,7 @@ class Kåren: UITableViewController, RETableViewManagerDelegate, QRCodeReaderVie
         let main = RETableViewSection.init()
         
         let events = RETableViewItem(title: NSLocalizedString("events", comment: ""), accessoryType: .disclosureIndicator, selectionHandler: {item in
-            
+            self.navigationController?.pushViewController(EventsViewController.init(style: .grouped), animated: true)
         })
         
         let card = RETableViewItem(title: NSLocalizedString("card", comment: ""), accessoryType: .disclosureIndicator, selectionHandler: {item in
@@ -454,5 +454,46 @@ class CardViewController: UIViewController {
         cardView?.kf.setImage(with: URL(string: "https://berzan.nu/login/card/card.php?tokenid=\(UserDefaults.standard.string(forKey: "tokenid") ?? "")&tokenkey=\(UserDefaults.standard.string(forKey: "tokenkey") ?? "")"))
         
         super.viewWillAppear(animated)
+    }
+}
+
+class EventsViewController: UITableViewController {
+    
+    var manager: RETableViewManager? = nil
+    
+    override func viewDidLoad() {
+        
+        title = NSLocalizedString("events", comment: "")
+        manager? = RETableViewManager(tableView: self.tableView)
+        
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: #selector(reloadContents), for: .valueChanged)
+        
+        self.refreshControl!.beginRefreshing()
+        self.tableView.setContentOffset(CGPoint(x: 0, y: -refreshControl!.frame.size.height), animated: true)
+        
+        reloadContents()
+        
+        super.viewWillAppear(animated)
+    }
+    
+    @objc func reloadContents() {
+        Alamofire.request("https://berzan.nu/events/getEvents.php?tokenid=\(UserDefaults.standard.string(forKey: "tokenid") ?? "")&tokenkey=\(UserDefaults.standard.string(forKey: "tokenkey") ?? "")", method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler: {response in
+            if let responseDict = response.result.value as? NSDictionary {
+                print(responseDict)
+                self.refreshControl!.endRefreshing()
+            } else {
+                let error = UIAlertController(title: NSLocalizedString("error", comment: ""), message: NSLocalizedString("error-events", comment: ""), preferredStyle: .alert)
+                error.addAction(UIAlertAction(title: NSLocalizedString("back", comment: ""), style: .cancel, handler: {action in
+                    self.navigationController?.popViewController(animated: true)
+                }))
+                self.present(error, animated: true, completion: nil)
+            }
+        })
     }
 }
