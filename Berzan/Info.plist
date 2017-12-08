@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>2.0.1-Beta</string>
 	<key>CFBundleVersion</key>
-	<string>828</string>
+	<string>857</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

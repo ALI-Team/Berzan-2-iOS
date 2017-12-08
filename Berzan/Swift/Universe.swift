@@ -32,10 +32,22 @@ extension UIImage {
 class mainTabBarController: UITabBarController {
     
     override public func viewWillAppear(_ animated: Bool) {
-        tabBar.items?.forEach({ (item) -> () in
-            item.image = item.selectedImage?.imageWithColor(color1: UIColor.init(white: 0.0, alpha: 0.6)).withRenderingMode(.alwaysOriginal)
-        })
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.init(white: 1, alpha: 0.7)], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: .selected)
+        
+        updateColors()
         
         super.viewWillAppear(animated)
+    }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        updateColors()
+    }
+    
+    func updateColors() {
+        tabBar.items?.forEach({ (item) -> () in
+            item.image = item.selectedImage?.imageWithColor(color1: UIColor.init(white: 1, alpha: 0.5)).withRenderingMode(.alwaysOriginal)
+        })
     }
 }
