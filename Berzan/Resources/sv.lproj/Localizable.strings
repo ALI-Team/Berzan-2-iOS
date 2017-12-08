@@ -154,3 +154,5 @@
 
 /* No comment provided by engineer. */
 "schedule" = "";
+
+"error-events" = "Fel vid laddning av evenemang";
