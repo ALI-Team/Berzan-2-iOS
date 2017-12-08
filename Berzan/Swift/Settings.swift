@@ -113,7 +113,7 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
         aboutSection?.addItem(mailItem)
         
         aboutSection?.addItem(RETableViewItem.init(title: NSLocalizedString("credits", comment: ""), accessoryType: .disclosureIndicator, selectionHandler: {_ in
-            self.navigationController?.pushViewController(CreditsViewController.init(), animated: true)
+            self.navigationController?.pushViewController(CreditsViewController.init(style: .grouped), animated: true)
         }))
         
         aboutSection?.footerTitle = "Berzan \(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String) (\(Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as! String)) \(NSLocalizedString("by-aliteam", comment: ""))"
@@ -159,12 +159,6 @@ class CreditsViewController: UITableViewController {
         manager = RETableViewManager.init(tableView: tableView)
         
         let mainSection = RETableViewSection.init()
-        
-        mainSection.headerView = UIView.init()
-        mainSection.footerView = UIView.init()
-        
-        tableView.tableHeaderView = UIView.init()
-        tableView.tableFooterView = UIView.init()
         
         mainSection.addItem(RETableViewItem.init(title: "XLPagerStrip", accessoryType: .none, selectionHandler: {item in
             
@@ -241,7 +235,71 @@ class CreditsViewController: UITableViewController {
             item?.deselectRow(animated: true)
         }))
         
+        mainSection.addItem(RETableViewItem.init(title: "MBProgressHUD", accessoryType: .none, selectionHandler: {item in
+            
+            guard let url = URL(string: "https://github.com/jdg/MBProgressHUD") else {
+                return //be safe
+            }
+            
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+            
+            item?.deselectRow(animated: true)
+        }))
+        
+        mainSection.addItem(RETableViewItem.init(title: "QRCodeReader.swift", accessoryType: .none, selectionHandler: {item in
+            
+            guard let url = URL(string: "https://github.com/YannickL/QRCodeReader.swift") else {
+                return //be safe
+            }
+            
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+            
+            item?.deselectRow(animated: true)
+        }))
+        
+        mainSection.addItem(RETableViewItem.init(title: "Icons8", accessoryType: .none, selectionHandler: {item in
+            
+            guard let url = URL(string: "https://icons8.com/") else {
+                return //be safe
+            }
+            
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+            
+            item?.deselectRow(animated: true)
+        }))
+        
         manager?.addSection(mainSection)
+        
+        let gitSection = RETableViewSection()
+        
+        gitSection.addItem(RETableViewItem.init(title: "Github", accessoryType: .none, selectionHandler: {item in
+            
+            guard let url = URL(string: "https://github.com/ALI-Team/Berzan-Appen-2-iOS-") else {
+                return //be safe
+            }
+            
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+            
+            item?.deselectRow(animated: true)
+        }))
+        
+        manager?.addSection(gitSection)
         
         super.viewDidLoad()
     }

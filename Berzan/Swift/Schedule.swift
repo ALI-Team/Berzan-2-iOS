@@ -36,6 +36,7 @@ class ScheduleWrapperController:ButtonBarPagerTabStripViewController, UIPickerVi
         self.week = Calendar.current.component(.weekOfYear, from: Date())
         
         //Other UI setup
+        
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         UIApplication.shared.statusBarStyle = .lightContent
         

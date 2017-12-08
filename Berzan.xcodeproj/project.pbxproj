@@ -17,6 +17,7 @@
 		A11EB0341FAD4FBE000D5E25 /* BerzanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EB0331FAD4FBE000D5E25 /* BerzanUITests.swift */; };
 		A11EB0451FAD5391000D5E25 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A11EB0441FAD5391000D5E25 /* logo.png */; };
 		A11EB04B1FAD5713000D5E25 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EB04A1FAD5713000D5E25 /* Schedule.swift */; };
+		A11EC07E1FDB076300DF78B6 /* Universe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11EC07D1FDB076300DF78B6 /* Universe.swift */; };
 		A13AC9F71FD9C0390096E88A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A13AC9F61FD9C0390096E88A /* NotificationCenter.framework */; };
 		A13AC9FB1FD9C0390096E88A /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A13AC9FA1FD9C0390096E88A /* TodayViewController.m */; };
 		A13AC9FE1FD9C0390096E88A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A13AC9FC1FD9C0390096E88A /* MainInterface.storyboard */; };
@@ -91,6 +92,7 @@
 		A11EB0351FAD4FBE000D5E25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A11EB0441FAD5391000D5E25 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		A11EB04A1FAD5713000D5E25 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		A11EC07D1FDB076300DF78B6 /* Universe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Universe.swift; sourceTree = "<group>"; };
 		A13AC9F51FD9C0390096E88A /* Skolmat.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Skolmat.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A13AC9F61FD9C0390096E88A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		A13AC9F91FD9C0390096E88A /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
@@ -188,7 +190,6 @@
 				A11EB0431FAD5387000D5E25 /* Resources */,
 				A11EB0421FAD537D000D5E25 /* User Interface */,
 				A11EB0411FAD5373000D5E25 /* Swift */,
-				A11EB01A1FAD4FBE000D5E25 /* Assets.xcassets */,
 				A11EB01F1FAD4FBE000D5E25 /* Info.plist */,
 			);
 			path = Berzan;
@@ -216,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				A11EB0131FAD4FBE000D5E25 /* AppDelegate.swift */,
+				A11EC07D1FDB076300DF78B6 /* Universe.swift */,
 				A11EB04A1FAD5713000D5E25 /* Schedule.swift */,
 				A1B4305C1FBE2EFC00FE2920 /* SchoolFood.swift */,
 				A1AB889A1FB0F09700FFAF49 /* Settings.swift */,
@@ -236,6 +238,7 @@
 		A11EB0431FAD5387000D5E25 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A11EB01A1FAD4FBE000D5E25 /* Assets.xcassets */,
 				A16B6EE11FCCBC45006F517E /* logo_tab@2x.png */,
 				A16B6EE01FCCBC44006F517E /* logo_tab@3x.png */,
 				A11EB0441FAD5391000D5E25 /* logo.png */,
@@ -640,6 +643,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11EC07E1FDB076300DF78B6 /* Universe.swift in Sources */,
 				A1AB889B1FB0F09700FFAF49 /* Settings.swift in Sources */,
 				A11EB04B1FAD5713000D5E25 /* Schedule.swift in Sources */,
 				A11EB0141FAD4FBE000D5E25 /* AppDelegate.swift in Sources */,
